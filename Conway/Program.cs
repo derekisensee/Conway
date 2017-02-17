@@ -14,25 +14,20 @@ namespace Conway
         static void Main(string[] args)
         {
             #region initial board
-            board = new int[20, 20] 
-            { 
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            board = new int[20, 20]
+            {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -94,19 +89,16 @@ namespace Conway
             {
                 for (int j = 0; j < board.GetLength(1); j++) // x axis
                 {
-                    int neighbors = checkLive(i, j); // is this supposed to be checkLive(i, j)???
-                    //Console.Write("i: " + i + ", j: " + j + " neighbors: " + neighbors + " " + board[i, j]);
+                    int neighbors = checkLive(i, j);
                     if (board[i, j] == 1) // removing this check produces odd behavior...
                     {
                         if (neighbors == 2 || neighbors == 3)
                         {
                             tempBoard[i, j] = 1;
-                            Console.WriteLine("lives at " + i + ", " + j); // only getting one of these when we run...
                         }
-                        if (neighbors < 2 || neighbors > 3)
+                        else
                         {
                             tempBoard[i, j] = 0;
-                            Console.WriteLine("dies at " + i + ", " + j + " neighbors: " + neighbors);
                         }
                     }
                     if (board[i, j] == 0 && neighbors == 3) // come to life!
@@ -129,23 +121,23 @@ namespace Conway
             {
                 count++;
             }
-            if (x - 1 > 0 && board[y, x] == 1) // check left bound
+            if (x - 1 > 0 && board[y, x - 1] == 1) // check left bound
             {
                 count++;
             }
-            if (x + 1 < /*do we need >=?*/ board.GetLength(1) && board[y, x + 1] == 1) // check right bound
+            if (x + 1 < board.GetLength(1) && board[y, x + 1] == 1) // check right bound
             {
                 count++;
             }
-            if (x - 1 > 0 && y - 1 > 0 && board[y - 1, x - 1] == 1) // check top left bound
+            if (x - 1 >= 0 && y - 1 > 0 && board[y - 1, x - 1] == 1) // check top left bound
             {
                 count++;
             }
-            if (x + 1 < board.GetLength(1) && y - 1 > 0 && board[y - 1, x + 1] == 1) // check top right bound
+            if (x + 1 < board.GetLength(1) && y - 1 >= 0 && board[y - 1, x + 1] == 1) // check top right bound
             {
                 count++;
             }
-            if (x - 1 > 0 && y + 1 > board.GetLength(0) && board[y + 1, x - 1] == 1) // check bottom left bound
+            if (x - 1 >= 0 && y + 1 > board.GetLength(0) && board[y + 1, x - 1] == 1) // check bottom left bound
             {
                 count++;
             }
