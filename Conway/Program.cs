@@ -18,9 +18,9 @@ namespace Conway
             { 
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -28,9 +28,9 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -39,7 +39,7 @@ namespace Conway
             };
             #endregion
             Timer step = new Timer();
-            step.Interval = 1500;
+            step.Interval = 1000;
             step.Elapsed += printBoard;
             step.Enabled = true;
             Console.ReadLine();
@@ -47,7 +47,6 @@ namespace Conway
 
         static void printBoard(Object source, System.Timers.ElapsedEventArgs e)
         {
-            updateBoard();
             Console.Clear();
             Console.WriteLine("Press Enter to exit");
             for (int i = 0; i < board.GetLength(0); i++)
@@ -58,6 +57,7 @@ namespace Conway
                 }
                 Console.WriteLine();
             }
+            updateBoard();
         }
 
         static void updateBoard()
@@ -66,7 +66,11 @@ namespace Conway
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
-                    int neighbors = checkLive(i, j);
+                    int neighbors = checkLive(j, i);
+                    /*if (neighbors > 0)
+                    {
+                        Console.WriteLine("neighbors: " + neighbors + "coordinates: " + i + ", " + j);
+                    }*/
                     if (board[i, j] == 1)
                     {
                         if (neighbors < 2)
@@ -244,6 +248,7 @@ namespace Conway
                     count++;
                 }
             }
+            #endregion
             else
             {
                 if (board[y - 1, x - 1] == 1)
@@ -279,7 +284,6 @@ namespace Conway
                     count++;
                 }
             }
-            #endregion
             return count;
         }
     }
