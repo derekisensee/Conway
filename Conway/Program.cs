@@ -66,7 +66,7 @@ namespace Conway
             {
                 for (int j = 0; j < board.GetLength(1); j++) // x axis
                 {
-                    int neighbors = checkLive(j, i);
+                    int neighbors = checkLive(i, j);
                     /*if (neighbors > 1)
                     {
                         Console.WriteLine("neighbors: " + neighbors + "coordinates: " + i + ", " + j);
