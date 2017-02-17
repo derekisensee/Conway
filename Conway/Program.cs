@@ -14,6 +14,7 @@ namespace Conway
         static void Main(string[] args)
         {
             #region empty board
+            /*
             board = new int[20, 20]
             {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -36,7 +37,7 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
-            };
+            };*/
             #endregion
             #region cool seed!
             /*
@@ -90,6 +91,7 @@ namespace Conway
             };
             #endregion
             #region brighan board 2.0
+            /*
             board = new int[20, 20]
             {
                 { 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1 },
@@ -112,7 +114,7 @@ namespace Conway
                 { 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0 },
                 { 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1 },
                 { 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0 }
-            };
+            };*/
             #endregion
             Timer step = new Timer();
             step.Interval = 400;
@@ -123,20 +125,19 @@ namespace Conway
 
         static void printBoard(Object source, System.Timers.ElapsedEventArgs e)
         {
-            Console.Clear();
-            Console.WriteLine("Press Enter to exit");
             for (int i = 0; i < board.GetLength(0); i++)
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
+                    Console.SetCursorPosition(j, i); // this makes printing smooth!
                     if (board[i, j] == 0)
                         Console.Write("-");
                     else
                         Console.Write("+");
-                    //Console.Write(board[i, j]);
                 }   
                 Console.WriteLine();
             }
+            Console.WriteLine("Press Enter to exit");
             updateBoard();
         }
 
