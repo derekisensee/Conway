@@ -29,6 +29,11 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -39,7 +44,7 @@ namespace Conway
             };
             #endregion
             Timer step = new Timer();
-            step.Interval = 1500;
+            step.Interval = 1000;
             step.Elapsed += printBoard;
             step.Enabled = true;
             Console.ReadLine();
@@ -47,7 +52,6 @@ namespace Conway
 
         static void printBoard(Object source, System.Timers.ElapsedEventArgs e)
         {
-            updateBoard();
             Console.Clear();
             Console.WriteLine("Press Enter to exit");
             for (int i = 0; i < board.GetLength(0); i++)
@@ -58,16 +62,21 @@ namespace Conway
                 }
                 Console.WriteLine();
             }
+            updateBoard();
         }
 
-        static void updateBoard()
-        {
-            for (int i = 0; i < board.GetLength(0); i++)
+        static void updateBoard() // TODO: instead of directly updating the board, i need to make a new 2d array that takes the existing board as the sample to check neighbors from.
+        {                         // pretty sure updating the board directly is my problem.
+            for (int i = 0; i < board.GetLength(0); i++) // y axis
             {
-                for (int j = 0; j < board.GetLength(1); j++)
+                for (int j = 0; j < board.GetLength(1); j++) // x axis
                 {
                     int neighbors = checkLive(i, j);
-                    if (board[i, j] == 1)
+                    /*if (neighbors > 1)
+                    {
+                        Console.WriteLine("neighbors: " + neighbors + "coordinates: " + i + ", " + j);
+                    }*/
+                    if (board[i, j] == 1) // removing this check produces odd behavior...
                     {
                         if (neighbors < 2)
                         {
@@ -82,6 +91,18 @@ namespace Conway
                             board[i, j] = 1;
                         }
                     }
+                    /*if (neighbors < 2)
+                    {
+                        board[i, j] = 0;
+                    }
+                    if (neighbors > 3)
+                    {
+                        board[i, j] = 0;
+                    }
+                    if (neighbors == 2 || neighbors == 3)
+                    {
+                        board[i, j] = 1;
+                    } */
                     if (board[i, j] == 0 && neighbors == 3)
                     {
                         board[i, j] = 1;
@@ -93,193 +114,38 @@ namespace Conway
         static int checkLive(int y, int x) // returns neighbors
         {
             int count = 0;
-            #region Bounds Checking
-            if (y == 0 && x == 0) // top left corner
+            if (y - 1 >= 0 && board[y - 1, x] == 1) // check top bound
             {
-                for (int i = 0; i < 1; i++)
-                {
-                    for (int j = 0; j < 1; j++)
-                    {
-                        if (board[i, j] == 1)
-                        {
-                            count++;
-                        }
-                    }
-                }
+                count++;
             }
-            else if (y == 0 && x == board.GetLength(1) - 1) // top right corner
+            if (y + 1 > board.GetLength(1) && board[y + 1, x] == 1) // check bottom bound
             {
-                if (board[y + 1, x] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y, x - 1] == 1)
-                {
-                    count++;
-                }
+                count++;
             }
-            else if (y == board.GetLength(1) - 1 && x == 0) // bottom left corner
+            if (x - 1 > 0 && board[y, x] == 1) // check left bound
             {
-                if (board[y, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x + 1] == 1)
-                {
-                    count++;
-                }
+                count++;
             }
-            else if (y == board.GetLength(1) - 1 && x == board.GetLength(0) - 1) // bottom right corner
+            if (x + 1 < /*do we need >=?*/ board.GetLength(1) && board[y, x + 1] == 1) // check right bound
             {
-                if (board[y - 1, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x] == 1)
-                {
-                    count++;
-                }
+                count++;
             }
-            else if (x == 0) // check left bound
+            if (x - 1 > 0 && y - 1 > 0 && board[y - 1, x - 1] == 1) // check top left bound
             {
-                if (board[y - 1, x] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x] == 1)
-                {
-                    count++;
-                }
+                count++;
             }
-            else if (x == board.GetLength(1) - 1) // check right bounds
-            { // TODO: Make sure this is good!
-                if (board[y - 1, x] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y, x - 1] == 1)
-                {
-                    count++;
-                }
-            }
-            else if (y == 0) // check top bounds
+            if (x + 1 < board.GetLength(1) && y - 1 > 0 && board[y - 1, x + 1] == 1) // check top right bound
             {
-                if (board[y, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x] == 1)
-                {
-                    count++;
-                }
+                count++;
             }
-            else if (y == board.GetLength(0) - 1) // check bottom bounds
+            if (x - 1 > 0 && y + 1 > board.GetLength(0) && board[y + 1, x - 1] == 1) // check bottom left bound
             {
-                if (board[y - 1, x] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y, x - 1] == 1)
-                {
-                    count++;
-                }
+                count++;
             }
-            else
+            if (x + 1 < board.GetLength(1) && y + 1 < board.GetLength(0) && board[y + 1, x + 1] == 1) // check bottom right bound
             {
-                if (board[y - 1, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x + 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y + 1, x] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x - 1] == 1)
-                {
-                    count++;
-                }
-                if (board[y - 1, x] == 1)
-                {
-                    count++;
-                }
+                count++;
             }
-            #endregion
             return count;
         }
     }
