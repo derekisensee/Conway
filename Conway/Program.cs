@@ -67,7 +67,6 @@ namespace Conway
             */
             #endregion
             #region brighan board
-            /*      
             board = new int[20, 20]
             {
                 { 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 },
@@ -90,7 +89,7 @@ namespace Conway
                 { 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 },
                 { 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 },
                 { 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 }
-            }; */
+            };
             #endregion
             #region brighan board 2.0
             /*
@@ -120,6 +119,7 @@ namespace Conway
             */
             #endregion
             #region basic things
+            /*
             board = new int[20, 20]
             {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -142,7 +142,7 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
-            };
+            }; */
             #endregion
             Timer step = new Timer();
             step.Interval = 400;
