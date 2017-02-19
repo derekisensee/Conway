@@ -115,7 +115,8 @@ namespace Conway
             };
             */
             #endregion
-            #region basic things
+            #region north-bound ship
+            /*
             board = new int[20, 20]
             {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -139,9 +140,35 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
             };
+            */
+            #endregion
+            #region south-bound ship
+            board = new int[20, 20]
+            {
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0 },
+                { 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0 },
+                { 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+            };
             #endregion
             Timer step = new Timer();
-            step.Interval = 400;
+            step.Interval = 200;
             step.Elapsed += printBoard;
             step.Enabled = true;
             Console.ReadLine(); // when user hits Enter, program terminates
@@ -261,19 +288,19 @@ namespace Conway
             {
                 count++;
             }
-            if (y == 0 && x < board.GetLength(1) && x >= 0 && (board[board.GetLength(0) - 1, x + 1] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
+            if (y == 0 && x < board.GetLength(1) - 1 && x >= 0 && (board[board.GetLength(0) - 1, x + 1] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
             {
                 count++;
             } //////////// other side of board
-            if (y == board.GetLength(0) && x < board.GetLength(1) && x > 0 && (board[0, x] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
+            if (y == board.GetLength(0) - 1 && x < board.GetLength(1) - 1 && x > 0 && (board[0, x] == 1)) // check the top of the board, so we can wrap around and set the top to be alive if needed
             {
                 count++;
             }
-            if (y == board.GetLength(0) && x < board.GetLength(1) && x > 0 && (board[0, x - 1] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
+            if (y == board.GetLength(0) - 1 && x < board.GetLength(1) - 1 && x > 0 && (board[0, x - 1] == 1)) // check the top of the board, so we can wrap around and set the top to be alive if needed
             {
                 count++;
             }
-            if (y == board.GetLength(0) && x < board.GetLength(1) && x > 0 && (board[0, x + 1] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
+            if (y == board.GetLength(0) - 1 && x < board.GetLength(1) - 1 && x > 0 && (board[0, x + 1] == 1)) // check the top of the board, so we can wrap around and set the top to be alive if needed
             {
                 count++;
             }
