@@ -143,6 +143,7 @@ namespace Conway
             */
             #endregion
             #region south-bound ship
+            /*
             board = new int[20, 20]
             {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -166,11 +167,38 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
             };
+            */
+            #endregion
+            #region east-bound glider
+            board = new int[20, 20]
+            {
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+            };
             #endregion
             Timer step = new Timer();
             step.Interval = 200;
             step.Elapsed += printBoard;
             step.Enabled = true;
+            Console.CursorVisible = false; // this is for even prettier stuff! prevents cursor from flashing all over the place and being an eye-sore
             Console.ReadLine(); // when user hits Enter, program terminates
         }
 
@@ -279,7 +307,8 @@ namespace Conway
             {
                 count++;
             }
-            #region Wrap Around Stuffs
+            // TODO: Add test case/bound checking for diagonal gliders, also a test case for corners of board.
+            #region Wrap Around Stuffs for north/south bound cells
             if (y == 0 && x < board.GetLength(1) && x > 0 && (board[board.GetLength(0) - 1, x] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
             {
                 count++;
@@ -288,10 +317,11 @@ namespace Conway
             {
                 count++;
             }
-            if (y == 0 && x < board.GetLength(1) - 1 && x >= 0 && (board[board.GetLength(0) - 1, x + 1] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
+            if (y == 0 && x < board.GetLength(1) - 1 && x > 0 && (board[board.GetLength(0) - 1, x + 1] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
             {
                 count++;
-            } //////////// other side of board
+            }
+            //////////// other side of board
             if (y == board.GetLength(0) - 1 && x < board.GetLength(1) - 1 && x > 0 && (board[0, x] == 1)) // check the top of the board, so we can wrap around and set the top to be alive if needed
             {
                 count++;
@@ -301,6 +331,34 @@ namespace Conway
                 count++;
             }
             if (y == board.GetLength(0) - 1 && x < board.GetLength(1) - 1 && x > 0 && (board[0, x + 1] == 1)) // check the top of the board, so we can wrap around and set the top to be alive if needed
+            {
+                count++;
+            }
+            #endregion
+            #region Wrap Around Stuffs for east/west bound cells
+            // east-bound
+            if (x == 0 && y < board.GetLength(0) - 1 && y > 0 && (board[y, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y < board.GetLength(0) - 1 && y > 0 && (board[y - 1, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y < board.GetLength(0) - 1 && y > 0 && (board[y + 1, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            // west-bound
+            if (x == board.GetLength(1) - 1 && y < board.GetLength(0) - 1 && y > 0 && (board[y, 0] == 1)) 
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y < board.GetLength(0) - 1 && y > 0 && (board[y - 1, 0] == 1)) 
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y < board.GetLength(0) - 1 && y > 0 && (board[y + 1, 0] == 1))
             {
                 count++;
             }
