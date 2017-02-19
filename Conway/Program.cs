@@ -6,6 +6,8 @@ namespace Conway
     class Program
     {
         static int[,] board;
+        static int generations;
+        static Boolean stabilizationOccurred;
 
         static void Main(string[] args)
         {
@@ -33,7 +35,8 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
-            };*/
+            };
+            */
             #endregion
             #region cool seed!
             /*
@@ -170,6 +173,7 @@ namespace Conway
             */
             #endregion
             #region east-bound glider
+            /*
             board = new int[20, 20]
             {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -193,11 +197,39 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
             };
+            */
             #endregion
+            board = new int[20, 20]
+            {
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+            };
+            generations = 1;
+            stabilizationOccurred = true;
+
             Timer step = new Timer();
             step.Interval = 200;
             step.Elapsed += printBoard;
             step.Enabled = true;
+
             Console.CursorVisible = false; // this is for even prettier stuff! prevents cursor from flashing all over the place and being an eye-sore
             Console.ReadLine(); // when user hits Enter, program terminates
         }
@@ -216,8 +248,9 @@ namespace Conway
                 }   
                 Console.WriteLine();
             }
-            Console.WriteLine("Press Enter to exit");
+            Console.WriteLine("Generations: " + generations + "\nPress Enter to exit");
             updateBoard();
+            generations++;
         }
 
         static void updateBoard()
@@ -269,11 +302,32 @@ namespace Conway
                     }
                 }
             }
+            // checks for stabilization
+            Boolean stable = true;
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    if (!(board[i, j] == tempBoard[i, j]))
+                    {
+                        stable = false;
+                        stabilizationOccurred = false;
+                        break;
+                    }
+                }
+            }
+            if (stable && stabilizationOccurred)
+            {
+                Console.WriteLine("Stabilized at generation " + generations + "!");
+                stabilizationOccurred = false; // prevents another printing of our stable-generation-number thing
+            }
             board = tempBoard;
         }
 
-        static int checkLive(int y, int x) // returns number of neighbors
+        static int checkLive(int y, int x) // returns number of neighbors. TODO: This is in need of major clean up, these statements can more than likely be condensed a line or 100.
         {
+            // TODO: Add test case/bound checking for diagonal gliders, also a test case for corners of board.
+            // Do we need to be checking for the "opposite" side of the board? Example: for board.GetLength(0) == 20: at position 0, 1: checkLive checks for cells at 0, 19.
             int count = 0;
             if (y - 1 >= 0 && board[y - 1, x] == 1) // check top bound
             {
@@ -307,7 +361,7 @@ namespace Conway
             {
                 count++;
             }
-            // TODO: Add test case/bound checking for diagonal gliders, also a test case for corners of board.
+            
             #region Wrap Around Stuffs for north/south bound cells
             if (y == 0 && x < board.GetLength(1) && x > 0 && (board[board.GetLength(0) - 1, x] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
             {
