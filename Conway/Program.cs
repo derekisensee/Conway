@@ -199,6 +199,30 @@ namespace Conway
             };
             */
             #endregion
+            /*
+            board = new int[20, 20]
+            {
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+            }; */
             board = new int[20, 20]
             {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -245,7 +269,7 @@ namespace Conway
                         Console.Write("-");
                     else
                         Console.Write("+");
-                }   
+                }
                 Console.WriteLine();
             }
             Console.WriteLine("Generations: " + generations + "\nPress Enter to exit");
@@ -361,7 +385,7 @@ namespace Conway
             {
                 count++;
             }
-            
+
             #region Wrap Around Stuffs for north/south bound cells
             if (y == 0 && x < board.GetLength(1) && x > 0 && (board[board.GetLength(0) - 1, x] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
             {
@@ -391,6 +415,7 @@ namespace Conway
             #endregion
             #region Wrap Around Stuffs for east/west bound cells
             // east-bound
+            // TODO: Not testing corners at all, if we fix that then we should have propor periodic boundary conditions.
             if (x == 0 && y < board.GetLength(0) - 1 && y > 0 && (board[y, board.GetLength(1) - 1] == 1))
             {
                 count++;
@@ -404,15 +429,147 @@ namespace Conway
                 count++;
             }
             // west-bound
-            if (x == board.GetLength(1) - 1 && y < board.GetLength(0) - 1 && y > 0 && (board[y, 0] == 1)) 
+            if (x == board.GetLength(1) - 1 && y < board.GetLength(0) - 1 && y > 0 && (board[y, 0] == 1))
             {
                 count++;
             }
-            if (x == board.GetLength(1) - 1 && y < board.GetLength(0) - 1 && y > 0 && (board[y - 1, 0] == 1)) 
+            if (x == board.GetLength(1) - 1 && y < board.GetLength(0) - 1 && y > 0 && (board[y - 1, 0] == 1))
             {
                 count++;
             }
             if (x == board.GetLength(1) - 1 && y < board.GetLength(0) - 1 && y > 0 && (board[y + 1, 0] == 1))
+            {
+                count++;
+            }
+            // for top left corner
+            if (x == 0 && y == 0 && (board[0, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == 0 && (board[board.GetLength(0) - 1, 0] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == 0 && (board[board.GetLength(0) - 1, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == 0 && (board[y, x + 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == 0 && (board[y + 1, x] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == 0 && (board[y + 1, x + 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == 0 && (board[board.GetLength(0) - 1, 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == 0 && (board[1, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            // for top right corner
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[0, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[board.GetLength(0) - 1, 0] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[board.GetLength(0) - 1, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[y, x - 1] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[y + 1, x] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[y + 1, x - 1] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[board.GetLength(0) - 1, board.GetLength(1) - 2] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[1, 0] == 1))
+            {
+                count++;
+            }
+            // bottom right corner
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[0, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[0, 0] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[board.GetLength(0) - 1, 0] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[y, x - 1] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[y - 1, x] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[y - 1, x - 1] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[0, board.GetLength(1) - 2] == 1))
+            {
+                count++;
+            }
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[board.GetLength(0) - 2, 0] == 1))
+            {
+                count++;
+            }
+            // bottom left corner
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[0, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[0, 0] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[board.GetLength(0) - 1, board.GetLength(1) - 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[y, x + 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[y - 1, x] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[y - 1, x + 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[0, 1] == 1))
+            {
+                count++;
+            }
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[board.GetLength(0) - 1, board.GetLength(1) - 2] == 1)) // this might not be right.
             {
                 count++;
             }
