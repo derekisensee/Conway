@@ -199,7 +199,6 @@ namespace Conway
             };
             */
             #endregion
-            /*
             board = new int[20, 20]
             {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -210,9 +209,6 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -221,44 +217,26 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
-            }; */
-            board = new int[20, 20]
-            {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 }
             };
             generations = 1;
             stabilizationOccurred = true;
 
-            Timer step = new Timer();
-            step.Interval = 200;
+            /*Timer step = new Timer();
+            step.Interval = 3500;
             step.Elapsed += printBoard;
-            step.Enabled = true;
+            step.Enabled = true;*/
+            printBoard();
+            printBoard();
 
             Console.CursorVisible = false; // this is for even prettier stuff! prevents cursor from flashing all over the place and being an eye-sore
             Console.ReadLine(); // when user hits Enter, program terminates
         }
 
-        static void printBoard(Object source, System.Timers.ElapsedEventArgs e)
+        static void printBoard(/*Object source, System.Timers.ElapsedEventArgs e*/)
         {
             for (int i = 0; i < board.GetLength(0); i++)
             {
@@ -317,11 +295,13 @@ namespace Conway
                         }
                         else
                         {
+                            Console.WriteLine("Dead at: " + i + ", " + j + ". Neighbors: " + neighbors);
                             tempBoard[i, j] = 0;
                         }
                     }
                     if (board[i, j] == 0 && neighbors == 3) // come to life!
                     {
+                        Console.WriteLine("Alive at: " + i + ", " + j);
                         tempBoard[i, j] = 1;
                     }
                 }
@@ -353,7 +333,7 @@ namespace Conway
             // TODO: Add test case/bound checking for diagonal gliders, also a test case for corners of board.
             // Do we need to be checking for the "opposite" side of the board? Example: for board.GetLength(0) == 20: at position 0, 1: checkLive checks for cells at 0, 19.
             int count = 0;
-            if (y - 1 >= 0 && board[y - 1, x] == 1) // check top bound
+            if (y - 1 >= 0  && board[y - 1, x] == 1) // check top bound
             {
                 count++;
             }
@@ -387,6 +367,7 @@ namespace Conway
             }
 
             #region Wrap Around Stuffs for north/south bound cells
+            // not checking for diagonal neighbors on opposite ends of board?
             if (y == 0 && x < board.GetLength(1) && x > 0 && (board[board.GetLength(0) - 1, x] == 1)) // check the bottom of the board, so we can wrap around and set the top to be alive if needed
             {
                 count++;
@@ -441,6 +422,7 @@ namespace Conway
             {
                 count++;
             }
+            #endregion
             // for top left corner
             if (x == 0 && y == 0 && (board[0, board.GetLength(1) - 1] == 1))
             {
@@ -475,11 +457,11 @@ namespace Conway
                 count++;
             }
             // for top right corner
-            if (x == board.GetLength(1) - 1 && y == 0 && (board[0, board.GetLength(1) - 1] == 1))
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[0, 0] == 1))
             {
                 count++;
             }
-            if (x == board.GetLength(1) - 1 && y == 0 && (board[board.GetLength(0) - 1, 0] == 1))
+            if (x == board.GetLength(1) - 1 && y == 0 && (board[board.GetLength(0) - 1, 0] == 1)) // problem here?
             {
                 count++;
             }
@@ -508,26 +490,26 @@ namespace Conway
                 count++;
             }
             // bottom right corner
-            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[0, board.GetLength(1) - 1] == 1))
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[0, board.GetLength(1) - 1] == 1))
             {
                 count++;
             }
-            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[0, 0] == 1))
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[0, 0] == 1))
             {
                 count++;
             }
-            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[board.GetLength(0) - 1, 0] == 1))
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[board.GetLength(0) - 1, 0] == 1))
             {
                 count++;
             }
-            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[y, x - 1] == 1))
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[y, x - 1] == 1))
             {
                 count++;
-            }
-            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) && (board[y - 1, x] == 1))
+            }/*
+            if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[y - 1, x] == 1)) // !!! we are already checking this above..
             {
                 count++;
-            }
+            }*/
             if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[y - 1, x - 1] == 1))
             {
                 count++;
@@ -535,13 +517,13 @@ namespace Conway
             if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[0, board.GetLength(1) - 2] == 1))
             {
                 count++;
-            }
+            } 
             if (x == board.GetLength(1) - 1 && y == board.GetLength(0) - 1 && (board[board.GetLength(0) - 2, 0] == 1))
             {
                 count++;
             }
             // bottom left corner
-            if (x == 0 && y == board.GetLength(0) - 1 && (board[0, board.GetLength(1) - 1] == 1))
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[board.GetLength(1) - 1, 0] == 1))
             {
                 count++;
             }
@@ -565,7 +547,7 @@ namespace Conway
             {
                 count++;
             }
-            if (x == 0 && y == board.GetLength(0) - 1 && (board[0, 1] == 1))
+            if (x == 0 && y == board.GetLength(0) - 1 && (board[1, 0] == 1))
             {
                 count++;
             }
@@ -573,7 +555,6 @@ namespace Conway
             {
                 count++;
             }
-            #endregion
             return count;
         }
     }
