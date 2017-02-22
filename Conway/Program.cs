@@ -223,13 +223,43 @@ namespace Conway
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 }
             };
+            #region ban board
+            /*
+            board = new int[20, 20]
+            {
+                { 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 },
+                { 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 },
+                { 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 }
+            };
+            */
+            #endregion
             generations = 1;
             stabilizationOccurred = true;
 
             /*Timer step = new Timer();
-            step.Interval = 3500;
+            step.Interval = 500;
             step.Elapsed += printBoard;
             step.Enabled = true;*/
+            printBoard();
+            printBoard();
+            printBoard();
             printBoard();
             printBoard();
             printBoard();
@@ -349,7 +379,7 @@ namespace Conway
             if (y + 1 < board.GetLength(1) && board[y + 1, x] == 1) // check bottom bound
             {
                 count++;
-                Console.WriteLine("!!!!So this happen.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine("!!!!So this happen.." + y + ", " + x + "Count: " + count + "Spot: " + (y + 1) + ", " + x);
                 spotChecked.Add("" + (y + 1) + (x));
             }
             if (x - 1 >= 0 && board[y, x - 1] == 1) // check left bound
@@ -465,42 +495,42 @@ namespace Conway
             if (x == 0 && y == 0 && (board[0, board.GetLength(1) - 1] == 1))
             {
                 count++;
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine(" this hfffappened.." + y + ", " + x + "Count: " + count + " Spot: " + 0, ", " + (board.GetLength(1) - 1));
             }
             if (x == 0 && y == 0 && (board[board.GetLength(0) - 1, 0] == 1))
             {
                 count++;
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine(" this hacccppened.." + y + ", " + x + "Count: " + count + " Spot: " + (board.GetLength(0) - 1) + ", " + 0);
             }
             if (x == 0 && y == 0 && (board[board.GetLength(0) - 1, board.GetLength(1) - 1] == 1))
             {
                 count++;
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine(" this haaaappened.." + y + ", " + x + "Count: " + count + " Spot: " + (board.GetLength(0) - 1) + ", " + (board.GetLength(1) - 1));
             }
             if (x == 0 && y == 0 && (board[y, x + 1] == 1))
             {
                 count++;
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine(" this happeeeened.." + y + ", " + x + "Count: " + count + " Spot: " + y + ", " + (x + 1));
             }
-            if (x == 0 && y == 0 && (board[y + 1, x] == 1))
+            if (x == 0 && y == 0 && (board[y + 1, x] == 1) && !(spotChecked.Contains("" + (y + 1) + x)))
             {
                 count++;
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine("this happenedggg.." + y + ", " + x + "Count: " + count + " Spot: " + (y + 1) + ", " + x);
             }
             if (x == 0 && y == 0 && (board[y + 1, x + 1] == 1))
             {
                 count++;
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine(" this happened..hhh" + y + ", " + x + "Count: " + count + " Spot: " + (y + 1) + ", " + (x + 1));
             }
             if (x == 0 && y == 0 && (board[board.GetLength(0) - 1, 1] == 1))
             {
                 count++;
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine(" this hajjjjppened.." + y + ", " + x + "Count: " + count + " Spot: " + (board.GetLength(0) - 1) + ", " + (1));
             }
             if (x == 0 && y == 0 && (board[1, board.GetLength(1) - 1] == 1))
             {
                 count++;
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count);
+                Console.WriteLine(" this happenpppppppped.." + y + ", " + x + "Count: " + count + " Spot: " + (1) + ", " + (board.GetLength(1) - 1));
             }
             // for top right corner
             if (x == board.GetLength(1) - 1 && y == 0 && (board[0, 0] == 1))
@@ -586,11 +616,11 @@ namespace Conway
                 Console.WriteLine("AAAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count + " Spot: " + (board.GetLength(1) - 1) + ", " + 0);
             }
             // bottom left corner
-            if (x == 0 && y == board.GetLength(0) - 1 && (board[board.GetLength(0) - 1, 0] == 1))
+            /*if (x == 0 && y == board.GetLength(0) - 1 && (board[board.GetLength(0) - 1, 0] == 1))
             {
                 count++;
                 Console.WriteLine("AAAAAAAAASo this happened.." + y + ", " + x + "Count: " + count + " Spot: " + (board.GetLength(1) - 1) + ", " + 0);
-            }
+            }*/
             if (x == 0 && y == board.GetLength(0) - 1 && (board[0, 0] == 1))
             {
                 count++;
