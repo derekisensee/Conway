@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Timers;
+using System.Windows.Forms;
 
 namespace Conway
 {
@@ -253,13 +253,48 @@ namespace Conway
             generations = 1;
             stabilizationOccurred = true;
 
-            Timer step = new Timer();
+            System.Timers.Timer step = new System.Timers.Timer();
             step.Interval = 150;
             step.Elapsed += printBoard;
             step.Enabled = true;
 
+            DataGridView dataView = new DataGridView();
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    DataGridViewColumn col = new DataGridViewColumn();
+                    col.Name = "cell";
+                    if (board[i, j] == 0)
+                    {
+                        dataView.Columns.Add("" + i, "" + 0);
+                    }
+                    else
+                    {
+                        dataView.Columns.Add("" + i, "" + 1);
+                    }
+                }
+
+                dataView.Rows.Add();
+            }
+
+            Form f = new Form();
+            f.Controls.Add(dataView);
+            Application.EnableVisualStyles();
+            Application.Run(f);
+
             Console.CursorVisible = false; // this is for even prettier stuff! prevents cursor from flashing all over the place and being an eye-sore
             Console.ReadLine(); // when user hits Enter, program terminates
+        }
+
+        static void dataView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            e.Column.FillWeight = 1;    // <<this line will help you
+        }
+
+        static int[,] getBoard()
+        {
+            return board;
         }
 
         static void printBoard(Object source, System.Timers.ElapsedEventArgs e)
