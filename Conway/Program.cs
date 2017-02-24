@@ -264,32 +264,17 @@ namespace Conway
             step.Interval = 150;
             step.Elapsed += printBoard;
             step.Enabled = true;
-
-            /*DataGridView dataView = new DataGridView();
-            for (int i = 0; i < board.GetLength(0); i++)
-            {
-                for (int j = 0; j < board.GetLength(1); j++)
-                {
-                    DataGridViewColumn col = new DataGridViewColumn();
-                    col.Name = "cell";
-                    if (board[i, j] == 0)
-                    {
-                        dataView.Columns.Add("" + i, "" + 0);
-                    }
-                    else
-                    {
-                        dataView.Columns.Add("" + i, "" + 1);
-                    }
-                }
-
-                dataView.Rows.Add();
-            }
+            /*
+            Label l = new Label();
 
             Form f = new Form();
-            f.Controls.Add(dataView);
+            f.Controls.Add(l);
+            l.Text = "HEY"; // figure out how to change text at runtime?
             Application.EnableVisualStyles();
-            Application.Run(f);*/
-
+            Application.Run(f);
+            l.Text = "YO";
+            f.Controls.Add(l);
+            f.Update(); */
             Console.CursorVisible = false; // this is for even prettier stuff! prevents cursor from flashing all over the place and being an eye-sore
             Console.ReadLine(); // when user hits Enter, program terminates
         }
@@ -312,7 +297,7 @@ namespace Conway
                 {
                     Console.SetCursorPosition(j, i); // this makes printing smooth!
                     if (board[i, j] == 0)
-                        Console.Write("-");
+                        Console.Write(".");
                     else
                         Console.Write("+");
                 }
@@ -395,6 +380,7 @@ namespace Conway
             }
             if (stable && stabilizationOccurred)
             {
+                Console.WriteLine("Stabilization occured at generation: " + generations);
                 stabilizationOccurred = false; // prevents another printing of our stable-generation-number thing
             }
             board = tempBoard;
