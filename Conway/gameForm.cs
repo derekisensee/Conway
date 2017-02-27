@@ -39,5 +39,10 @@ namespace Conway
             }
             label1.Text = boardString;
         }
+
+        private void pause_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

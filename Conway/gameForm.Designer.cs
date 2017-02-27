@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pause = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -48,11 +49,22 @@
             this.timer1.Interval = 150;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pause
+            // 
+            this.pause.Location = new System.Drawing.Point(12, 394);
+            this.pause.Name = "pause";
+            this.pause.Size = new System.Drawing.Size(75, 23);
+            this.pause.TabIndex = 1;
+            this.pause.Text = "Pause/Start";
+            this.pause.UseVisualStyleBackColor = true;
+            this.pause.Click += new System.EventHandler(this.pause_Click);
+            // 
             // gameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 429);
+            this.Controls.Add(this.pause);
             this.Controls.Add(this.label1);
             this.Name = "gameForm";
             this.Text = "gameForm";
@@ -65,5 +77,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button pause;
     }
 }
