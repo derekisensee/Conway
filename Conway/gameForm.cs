@@ -72,5 +72,18 @@ namespace Conway
                 currInterval.Text = timer1.Interval + "ms";
             }
         }
+
+        private void zoomIn_Click(object sender, EventArgs e)
+        {
+            label1.Font = new Font(label1.Font.FontFamily, label1.Font.Size + 2);
+        }
+
+        private void zoomOut_Click(object sender, EventArgs e)
+        {
+            if (label1.Font.Size - 2 > 0)
+            {
+                label1.Font = new Font(label1.Font.FontFamily, label1.Font.Size - 2);
+            }
+        }
     }
 }
