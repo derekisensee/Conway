@@ -12,9 +12,16 @@ namespace Conway
 {
     public partial class gameForm : Form
     {
+        Backend b;
         public gameForm()
         {
             InitializeComponent();
+            b = new Backend();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            b.printBoard();
         }
     }
 }
