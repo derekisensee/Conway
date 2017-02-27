@@ -85,5 +85,10 @@ namespace Conway
                 label1.Font = new Font(label1.Font.FontFamily, label1.Font.Size - 2);
             }
         }
+
+        private void structurePlaceFormButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

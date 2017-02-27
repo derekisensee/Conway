@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pause = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.zoomOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.structurePlaceFormButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -123,9 +125,9 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 91);
+            this.panel1.Location = new System.Drawing.Point(12, 144);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(248, 30);
+            this.panel1.Size = new System.Drawing.Size(254, 33);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -136,10 +138,21 @@
             this.flowLayoutPanel1.Controls.Add(this.decTime);
             this.flowLayoutPanel1.Controls.Add(this.incTime);
             this.flowLayoutPanel1.Controls.Add(this.currInterval);
+            this.flowLayoutPanel1.Controls.Add(this.structurePlaceFormButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 73);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 126);
             this.flowLayoutPanel1.TabIndex = 8;
+            // 
+            // structurePlaceFormButton
+            // 
+            this.structurePlaceFormButton.Location = new System.Drawing.Point(3, 61);
+            this.structurePlaceFormButton.Name = "structurePlaceFormButton";
+            this.structurePlaceFormButton.Size = new System.Drawing.Size(203, 23);
+            this.structurePlaceFormButton.TabIndex = 8;
+            this.structurePlaceFormButton.Text = "Place Structure";
+            this.structurePlaceFormButton.UseVisualStyleBackColor = true;
+            this.structurePlaceFormButton.Click += new System.EventHandler(this.structurePlaceFormButton_Click);
             // 
             // gameForm
             // 
@@ -147,9 +160,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(928, 302);
+            this.ClientSize = new System.Drawing.Size(1198, 555);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "gameForm";
             this.Text = "gameForm";
             this.panel1.ResumeLayout(false);
@@ -173,5 +187,6 @@
         private System.Windows.Forms.Button zoomOut;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button structurePlaceFormButton;
     }
 }
