@@ -13,11 +13,13 @@ namespace Conway
     public partial class gameForm : Form
     {
         Backend b;
+        Boolean paused;
 
         public gameForm()
         {
             InitializeComponent();
             b = new Backend();
+            paused = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -42,7 +44,16 @@ namespace Conway
 
         private void pause_Click(object sender, EventArgs e)
         {
-
+            if (paused)
+            {
+                timer1.Start();
+                paused = false;
+            }
+            else
+            {
+                timer1.Stop();
+                paused = true;
+            }
         }
     }
 }
