@@ -33,9 +33,11 @@ namespace Conway
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
                     if (board[i, j] == 0)
-                        boardString += "-";
+                        boardString += ". ";
                     else
+                    {
                         boardString += "+";
+                    }
                 }
                 boardString += "\n";
             }
@@ -53,6 +55,21 @@ namespace Conway
             {
                 timer1.Stop();
                 paused = true;
+            }
+        }
+
+        private void decTime_Click(object sender, EventArgs e)
+        {
+            timer1.Interval += 10;
+            currInterval.Text = timer1.Interval + "ms";
+        }
+
+        private void incTime_Click(object sender, EventArgs e)
+        {
+            if (!(timer1.Interval == 10))
+            {
+                timer1.Interval -= 10;
+                currInterval.Text = timer1.Interval + "ms";
             }
         }
     }
