@@ -45,14 +45,14 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 250;
+            this.timer1.Interval = 150;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // gameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 429);
+            this.ClientSize = new System.Drawing.Size(501, 429);
             this.Controls.Add(this.label1);
             this.Name = "gameForm";
             this.Text = "gameForm";

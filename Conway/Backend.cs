@@ -50,7 +50,7 @@ namespace Conway
             stabilizationOccurred = true;
         }
 
-        int[,] getBoard()
+        public int[,] getBoard()
         {
             return board;
         }
@@ -74,7 +74,7 @@ namespace Conway
             generations++;
         }
 
-        void updateBoard()
+        public void updateBoard()
         {
             #region tempBoard definition
             int[,] tempBoard = new int[27, 71]
@@ -146,7 +146,7 @@ namespace Conway
             }
             if (stable && stabilizationOccurred)
             {
-                Console.WriteLine("Stabilization occured at generation: " + generations);
+                //Console.WriteLine("Stabilization occured at generation: " + generations);
                 stabilizationOccurred = false; // prevents another printing of our stable-generation-number thing
             }
             board = tempBoard;

@@ -13,6 +13,7 @@ namespace Conway
     public partial class gameForm : Form
     {
         Backend b;
+
         public gameForm()
         {
             InitializeComponent();
@@ -21,7 +22,22 @@ namespace Conway
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            b.printBoard();
+            b.updateBoard();
+            int[,] board = b.getBoard();
+            String boardString = "";
+
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    if (board[i, j] == 0)
+                        boardString += "-";
+                    else
+                        boardString += "+";
+                }
+                boardString += "\n";
+            }
+            label1.Text = boardString;
         }
     }
 }
