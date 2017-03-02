@@ -43,6 +43,11 @@ namespace Conway
             stabilizationOccurred = true;
         }
 
+        public Backend(int x, int y)
+        {
+            board = new int[x, y];
+        }
+
         public void placeObject(int[,] structure, int y, int x)
         {
             int startX = x;
