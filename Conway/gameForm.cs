@@ -88,7 +88,8 @@ namespace Conway
 
         private void structurePlaceFormButton_Click(object sender, EventArgs e)
         {
-            // TODO: create new form that's opened by this button
+            timer1.Stop();
+            structurePlace sP = new structurePlace();
         }
     }
 }

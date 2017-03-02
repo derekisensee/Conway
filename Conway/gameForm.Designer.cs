@@ -41,6 +41,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.structurePlaceFormButton = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,10 +50,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.Size = new System.Drawing.Size(13, 9);
             this.label1.TabIndex = 0;
             this.label1.Text = ":-)";
             // 
@@ -63,7 +65,7 @@
             // 
             // pause
             // 
-            this.pause.Location = new System.Drawing.Point(84, 3);
+            this.pause.Location = new System.Drawing.Point(119, 3);
             this.pause.Name = "pause";
             this.pause.Size = new System.Drawing.Size(75, 23);
             this.pause.TabIndex = 1;
@@ -73,7 +75,7 @@
             // 
             // decTime
             // 
-            this.decTime.Location = new System.Drawing.Point(84, 32);
+            this.decTime.Location = new System.Drawing.Point(3, 3);
             this.decTime.Name = "decTime";
             this.decTime.Size = new System.Drawing.Size(30, 23);
             this.decTime.TabIndex = 3;
@@ -83,7 +85,7 @@
             // 
             // incTime
             // 
-            this.incTime.Location = new System.Drawing.Point(120, 32);
+            this.incTime.Location = new System.Drawing.Point(39, 3);
             this.incTime.Name = "incTime";
             this.incTime.Size = new System.Drawing.Size(30, 23);
             this.incTime.TabIndex = 4;
@@ -94,7 +96,7 @@
             // currInterval
             // 
             this.currInterval.AutoSize = true;
-            this.currInterval.Location = new System.Drawing.Point(156, 29);
+            this.currInterval.Location = new System.Drawing.Point(75, 0);
             this.currInterval.Name = "currInterval";
             this.currInterval.Size = new System.Drawing.Size(38, 13);
             this.currInterval.TabIndex = 5;
@@ -102,7 +104,7 @@
             // 
             // zoomIn
             // 
-            this.zoomIn.Location = new System.Drawing.Point(3, 3);
+            this.zoomIn.Location = new System.Drawing.Point(209, 3);
             this.zoomIn.Name = "zoomIn";
             this.zoomIn.Size = new System.Drawing.Size(75, 23);
             this.zoomIn.TabIndex = 6;
@@ -112,7 +114,7 @@
             // 
             // zoomOut
             // 
-            this.zoomOut.Location = new System.Drawing.Point(3, 32);
+            this.zoomOut.Location = new System.Drawing.Point(290, 3);
             this.zoomOut.Name = "zoomOut";
             this.zoomOut.Size = new System.Drawing.Size(75, 23);
             this.zoomOut.TabIndex = 7;
@@ -125,34 +127,54 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 144);
+            this.panel1.Location = new System.Drawing.Point(12, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(254, 33);
+            this.panel1.Size = new System.Drawing.Size(1174, 495);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.zoomIn);
-            this.flowLayoutPanel1.Controls.Add(this.pause);
-            this.flowLayoutPanel1.Controls.Add(this.zoomOut);
             this.flowLayoutPanel1.Controls.Add(this.decTime);
             this.flowLayoutPanel1.Controls.Add(this.incTime);
             this.flowLayoutPanel1.Controls.Add(this.currInterval);
+            this.flowLayoutPanel1.Controls.Add(this.pause);
+            this.flowLayoutPanel1.Controls.Add(this.splitter2);
+            this.flowLayoutPanel1.Controls.Add(this.zoomIn);
+            this.flowLayoutPanel1.Controls.Add(this.zoomOut);
+            this.flowLayoutPanel1.Controls.Add(this.splitter1);
             this.flowLayoutPanel1.Controls.Add(this.structurePlaceFormButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 126);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1174, 30);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // structurePlaceFormButton
             // 
-            this.structurePlaceFormButton.Location = new System.Drawing.Point(3, 61);
+            this.structurePlaceFormButton.Location = new System.Drawing.Point(380, 3);
             this.structurePlaceFormButton.Name = "structurePlaceFormButton";
             this.structurePlaceFormButton.Size = new System.Drawing.Size(203, 23);
             this.structurePlaceFormButton.TabIndex = 8;
             this.structurePlaceFormButton.Text = "Place Structure";
             this.structurePlaceFormButton.UseVisualStyleBackColor = true;
             this.structurePlaceFormButton.Click += new System.EventHandler(this.structurePlaceFormButton_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitter2.Location = new System.Drawing.Point(200, 3);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(3, 23);
+            this.splitter2.TabIndex = 10;
+            this.splitter2.TabStop = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitter1.Location = new System.Drawing.Point(371, 3);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 23);
+            this.splitter1.TabIndex = 11;
+            this.splitter1.TabStop = false;
             // 
             // gameForm
             // 
@@ -188,5 +210,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button structurePlaceFormButton;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }
