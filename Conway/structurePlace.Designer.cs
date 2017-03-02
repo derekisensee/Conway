@@ -38,6 +38,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.placeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.xValSelector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yValSelector)).BeginInit();
             this.structureSelector.SuspendLayout();
@@ -138,11 +139,22 @@
             this.tabPage4.Text = "Guns";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // placeButton
+            // 
+            this.placeButton.Location = new System.Drawing.Point(311, 14);
+            this.placeButton.Name = "placeButton";
+            this.placeButton.Size = new System.Drawing.Size(131, 45);
+            this.placeButton.TabIndex = 6;
+            this.placeButton.Text = "Place Structure!";
+            this.placeButton.UseVisualStyleBackColor = true;
+            this.placeButton.Click += new System.EventHandler(this.placeButton_Click);
+            // 
             // structurePlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 504);
+            this.Controls.Add(this.placeButton);
             this.Controls.Add(this.structureSelector);
             this.Controls.Add(this.yLabel);
             this.Controls.Add(this.xLabel);
@@ -150,6 +162,7 @@
             this.Controls.Add(this.xValSelector);
             this.Name = "structurePlace";
             this.Text = "structurePlace";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.structurePlace_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.xValSelector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yValSelector)).EndInit();
             this.structureSelector.ResumeLayout(false);
@@ -171,5 +184,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button placeButton;
     }
 }

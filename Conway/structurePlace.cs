@@ -12,9 +12,22 @@ namespace Conway
 {
     public partial class structurePlace : Form
     {
+        public gameForm f;
+        int[,] structure;
+
         public structurePlace()
         {
             InitializeComponent();
+        }
+
+        private void structurePlace_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            f.timer1.Start();
+        }
+
+        private void placeButton_Click(object sender, EventArgs e)
+        {
+            f.b.placeObject(structure, (int)yValSelector.Value, (int)xValSelector.Value);
         }
     }
 }

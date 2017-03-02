@@ -12,7 +12,7 @@ namespace Conway
 {
     public partial class gameForm : Form
     {
-        Backend b;
+        public Backend b;
         Boolean paused;
 
         public gameForm()
@@ -90,6 +90,8 @@ namespace Conway
         {
             timer1.Stop();
             structurePlace sP = new structurePlace();
+            sP.f = this;
+            sP.Show();
         }
     }
 }

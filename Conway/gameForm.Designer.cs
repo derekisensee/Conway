@@ -200,7 +200,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button pause;
         private System.Windows.Forms.Button decTime;
         private System.Windows.Forms.Button incTime;

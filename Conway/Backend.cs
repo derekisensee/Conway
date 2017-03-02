@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Conway
 {
-    class Backend
+    public class Backend
     {
         int[,] board;
         int generations;
