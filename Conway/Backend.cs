@@ -24,7 +24,7 @@ namespace Conway
                 }
             }
 
-            gliderGun = new int[9, 36]
+            /*gliderGun = new int[9, 36]
             {
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -38,6 +38,7 @@ namespace Conway
             };
 
             placeObject(gliderGun, 40, 100);
+            */
 
             generations = 1;
             stabilizationOccurred = true;

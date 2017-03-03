@@ -90,7 +90,7 @@ namespace Conway
         {
             timer1.Stop();
             structurePlace sP = new structurePlace();
-            sP.f = this;
+            sP.f = this; // gives structurePlace access to the 'b' backend
             sP.Show();
         }
     }

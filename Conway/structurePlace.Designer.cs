@@ -32,17 +32,22 @@
             this.yValSelector = new System.Windows.Forms.NumericUpDown();
             this.xLabel = new System.Windows.Forms.Label();
             this.yLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.toadButton = new System.Windows.Forms.Button();
             this.structureSelector = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.placeButton = new System.Windows.Forms.Button();
+            this.selectedStructureLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gliderGunButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.xValSelector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yValSelector)).BeginInit();
             this.structureSelector.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // xValSelector
@@ -77,14 +82,15 @@
             this.yLabel.TabIndex = 3;
             this.yLabel.Text = "Y";
             // 
-            // button1
+            // toadButton
             // 
-            this.button1.Location = new System.Drawing.Point(6, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.toadButton.Location = new System.Drawing.Point(6, 6);
+            this.toadButton.Name = "toadButton";
+            this.toadButton.Size = new System.Drawing.Size(65, 23);
+            this.toadButton.TabIndex = 4;
+            this.toadButton.Text = "Toad";
+            this.toadButton.UseVisualStyleBackColor = true;
+            this.toadButton.Click += new System.EventHandler(this.toadButton_Click);
             // 
             // structureSelector
             // 
@@ -92,19 +98,19 @@
             this.structureSelector.Controls.Add(this.tabPage2);
             this.structureSelector.Controls.Add(this.tabPage3);
             this.structureSelector.Controls.Add(this.tabPage4);
-            this.structureSelector.Location = new System.Drawing.Point(29, 65);
+            this.structureSelector.Location = new System.Drawing.Point(29, 299);
             this.structureSelector.Name = "structureSelector";
             this.structureSelector.SelectedIndex = 0;
-            this.structureSelector.Size = new System.Drawing.Size(413, 427);
+            this.structureSelector.Size = new System.Drawing.Size(457, 193);
             this.structureSelector.TabIndex = 5;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.toadButton);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(405, 401);
+            this.tabPage1.Size = new System.Drawing.Size(449, 167);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Static";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -131,29 +137,61 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.gliderGunButton);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(405, 401);
+            this.tabPage4.Size = new System.Drawing.Size(449, 167);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Guns";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // placeButton
             // 
-            this.placeButton.Location = new System.Drawing.Point(311, 14);
+            this.placeButton.Location = new System.Drawing.Point(355, 12);
             this.placeButton.Name = "placeButton";
-            this.placeButton.Size = new System.Drawing.Size(131, 45);
+            this.placeButton.Size = new System.Drawing.Size(131, 47);
             this.placeButton.TabIndex = 6;
             this.placeButton.Text = "Place Structure!";
             this.placeButton.UseVisualStyleBackColor = true;
             this.placeButton.Click += new System.EventHandler(this.placeButton_Click);
             // 
+            // selectedStructureLabel
+            // 
+            this.selectedStructureLabel.AutoSize = true;
+            this.selectedStructureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectedStructureLabel.Location = new System.Drawing.Point(7, 16);
+            this.selectedStructureLabel.Name = "selectedStructureLabel";
+            this.selectedStructureLabel.Size = new System.Drawing.Size(61, 13);
+            this.selectedStructureLabel.TabIndex = 7;
+            this.selectedStructureLabel.Text = "I am empty.";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.selectedStructureLabel);
+            this.groupBox1.Location = new System.Drawing.Point(29, 65);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(457, 228);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Selected structure";
+            // 
+            // gliderGunButton
+            // 
+            this.gliderGunButton.Location = new System.Drawing.Point(7, 7);
+            this.gliderGunButton.Name = "gliderGunButton";
+            this.gliderGunButton.Size = new System.Drawing.Size(116, 23);
+            this.gliderGunButton.TabIndex = 0;
+            this.gliderGunButton.Text = "Standard Glider Gun";
+            this.gliderGunButton.UseVisualStyleBackColor = true;
+            this.gliderGunButton.Click += new System.EventHandler(this.gliderGunButton_Click);
+            // 
             // structurePlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 504);
+            this.ClientSize = new System.Drawing.Size(498, 504);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.placeButton);
             this.Controls.Add(this.structureSelector);
             this.Controls.Add(this.yLabel);
@@ -167,6 +205,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.yValSelector)).EndInit();
             this.structureSelector.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,12 +219,15 @@
         private System.Windows.Forms.NumericUpDown yValSelector;
         private System.Windows.Forms.Label xLabel;
         private System.Windows.Forms.Label yLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button toadButton;
         private System.Windows.Forms.TabControl structureSelector;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button placeButton;
+        private System.Windows.Forms.Label selectedStructureLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button gliderGunButton;
     }
 }
