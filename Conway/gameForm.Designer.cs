@@ -40,9 +40,9 @@
             this.zoomOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.structurePlaceFormButton = new System.Windows.Forms.Button();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.structurePlaceFormButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(6, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(13, 9);
@@ -148,16 +150,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1174, 30);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
-            // structurePlaceFormButton
-            // 
-            this.structurePlaceFormButton.Location = new System.Drawing.Point(380, 3);
-            this.structurePlaceFormButton.Name = "structurePlaceFormButton";
-            this.structurePlaceFormButton.Size = new System.Drawing.Size(203, 23);
-            this.structurePlaceFormButton.TabIndex = 8;
-            this.structurePlaceFormButton.Text = "Place Structure";
-            this.structurePlaceFormButton.UseVisualStyleBackColor = true;
-            this.structurePlaceFormButton.Click += new System.EventHandler(this.structurePlaceFormButton_Click);
-            // 
             // splitter2
             // 
             this.splitter2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -176,12 +168,23 @@
             this.splitter1.TabIndex = 11;
             this.splitter1.TabStop = false;
             // 
+            // structurePlaceFormButton
+            // 
+            this.structurePlaceFormButton.Location = new System.Drawing.Point(380, 3);
+            this.structurePlaceFormButton.Name = "structurePlaceFormButton";
+            this.structurePlaceFormButton.Size = new System.Drawing.Size(203, 23);
+            this.structurePlaceFormButton.TabIndex = 8;
+            this.structurePlaceFormButton.Text = "Place Structure";
+            this.structurePlaceFormButton.UseVisualStyleBackColor = true;
+            this.structurePlaceFormButton.Click += new System.EventHandler(this.structurePlaceFormButton_Click);
+            // 
             // gameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1198, 555);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);

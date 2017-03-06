@@ -76,5 +76,21 @@ namespace Conway
             };
             setStructureLabelText();
         }
+
+        private void figureEightButton_Click(object sender, EventArgs e)
+        {
+            structure = new int[8, 8]
+            {
+                { 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 1, 1, 0, 0, 0, 0, 0 },
+                { 0, 1, 1, 0, 1, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 1, 0, 0 },
+                { 0, 0, 1, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 1, 0, 1, 1, 0 },
+                { 0, 0, 0, 0, 0, 1, 1, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0 }
+            };
+            setStructureLabelText();
+        }
     }
 }

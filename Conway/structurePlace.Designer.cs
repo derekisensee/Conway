@@ -38,14 +38,16 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.gliderGunButton = new System.Windows.Forms.Button();
             this.placeButton = new System.Windows.Forms.Button();
             this.selectedStructureLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gliderGunButton = new System.Windows.Forms.Button();
+            this.figureEightButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.xValSelector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yValSelector)).BeginInit();
             this.structureSelector.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -117,10 +119,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.figureEightButton);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(405, 401);
+            this.tabPage2.Size = new System.Drawing.Size(449, 167);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Oscillators";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -130,7 +133,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(405, 401);
+            this.tabPage3.Size = new System.Drawing.Size(449, 167);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Spaceships";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -145,6 +148,16 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Guns";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // gliderGunButton
+            // 
+            this.gliderGunButton.Location = new System.Drawing.Point(7, 7);
+            this.gliderGunButton.Name = "gliderGunButton";
+            this.gliderGunButton.Size = new System.Drawing.Size(116, 23);
+            this.gliderGunButton.TabIndex = 0;
+            this.gliderGunButton.Text = "Standard Glider Gun";
+            this.gliderGunButton.UseVisualStyleBackColor = true;
+            this.gliderGunButton.Click += new System.EventHandler(this.gliderGunButton_Click);
             // 
             // placeButton
             // 
@@ -176,15 +189,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selected structure";
             // 
-            // gliderGunButton
+            // figureEightButton
             // 
-            this.gliderGunButton.Location = new System.Drawing.Point(7, 7);
-            this.gliderGunButton.Name = "gliderGunButton";
-            this.gliderGunButton.Size = new System.Drawing.Size(116, 23);
-            this.gliderGunButton.TabIndex = 0;
-            this.gliderGunButton.Text = "Standard Glider Gun";
-            this.gliderGunButton.UseVisualStyleBackColor = true;
-            this.gliderGunButton.Click += new System.EventHandler(this.gliderGunButton_Click);
+            this.figureEightButton.Location = new System.Drawing.Point(7, 7);
+            this.figureEightButton.Name = "figureEightButton";
+            this.figureEightButton.Size = new System.Drawing.Size(75, 23);
+            this.figureEightButton.TabIndex = 0;
+            this.figureEightButton.Text = "Figure Eight";
+            this.figureEightButton.UseVisualStyleBackColor = true;
+            this.figureEightButton.Click += new System.EventHandler(this.figureEightButton_Click);
             // 
             // structurePlace
             // 
@@ -205,6 +218,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.yValSelector)).EndInit();
             this.structureSelector.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -229,5 +243,6 @@
         private System.Windows.Forms.Label selectedStructureLabel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button gliderGunButton;
+        private System.Windows.Forms.Button figureEightButton;
     }
 }
