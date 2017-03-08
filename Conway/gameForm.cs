@@ -93,5 +93,10 @@ namespace Conway
             sP.f = this; // gives structurePlace access to the 'b' backend
             sP.Show();
         }
+
+        private void clearBoard_Click(object sender, EventArgs e)
+        {
+            b.clearBoard();
+        }
     }
 }

@@ -43,6 +43,8 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.structurePlaceFormButton = new System.Windows.Forms.Button();
+            this.splitter3 = new System.Windows.Forms.Splitter();
+            this.clearBoard = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +147,8 @@
             this.flowLayoutPanel1.Controls.Add(this.zoomOut);
             this.flowLayoutPanel1.Controls.Add(this.splitter1);
             this.flowLayoutPanel1.Controls.Add(this.structurePlaceFormButton);
+            this.flowLayoutPanel1.Controls.Add(this.splitter3);
+            this.flowLayoutPanel1.Controls.Add(this.clearBoard);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1174, 30);
@@ -177,6 +181,25 @@
             this.structurePlaceFormButton.Text = "Place Structure";
             this.structurePlaceFormButton.UseVisualStyleBackColor = true;
             this.structurePlaceFormButton.Click += new System.EventHandler(this.structurePlaceFormButton_Click);
+            // 
+            // splitter3
+            // 
+            this.splitter3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitter3.Location = new System.Drawing.Point(589, 3);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(3, 23);
+            this.splitter3.TabIndex = 12;
+            this.splitter3.TabStop = false;
+            // 
+            // clearBoard
+            // 
+            this.clearBoard.Location = new System.Drawing.Point(598, 3);
+            this.clearBoard.Name = "clearBoard";
+            this.clearBoard.Size = new System.Drawing.Size(75, 23);
+            this.clearBoard.TabIndex = 13;
+            this.clearBoard.Text = "Clear Board";
+            this.clearBoard.UseVisualStyleBackColor = true;
+            this.clearBoard.Click += new System.EventHandler(this.clearBoard_Click);
             // 
             // gameForm
             // 
@@ -215,5 +238,7 @@
         private System.Windows.Forms.Button structurePlaceFormButton;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Splitter splitter3;
+        private System.Windows.Forms.Button clearBoard;
     }
 }

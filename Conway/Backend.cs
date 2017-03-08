@@ -53,6 +53,18 @@ namespace Conway
             return board;
         }
 
+        public void clearBoard()
+        {
+            board = new int[70, 200];
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    board[i, j] = 0;
+                }
+            }
+        }
+
         public void printBoard(Object source, System.Timers.ElapsedEventArgs e)
         {
             for (int i = 0; i < board.GetLength(0); i++)
