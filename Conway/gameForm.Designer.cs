@@ -35,7 +35,6 @@
             this.pause = new System.Windows.Forms.Button();
             this.decTime = new System.Windows.Forms.Button();
             this.incTime = new System.Windows.Forms.Button();
-            this.currInterval = new System.Windows.Forms.Label();
             this.zoomIn = new System.Windows.Forms.Button();
             this.zoomOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,7 +43,12 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.structurePlaceFormButton = new System.Windows.Forms.Button();
             this.splitter3 = new System.Windows.Forms.Splitter();
+            this.randomizerButton = new System.Windows.Forms.Button();
+            this.splitter4 = new System.Windows.Forms.Splitter();
             this.clearBoard = new System.Windows.Forms.Button();
+            this.slowSpeedButton = new System.Windows.Forms.Button();
+            this.mediumSpeedButton = new System.Windows.Forms.Button();
+            this.fastSpeedButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +73,7 @@
             // 
             // pause
             // 
-            this.pause.Location = new System.Drawing.Point(119, 3);
+            this.pause.Location = new System.Drawing.Point(318, 3);
             this.pause.Name = "pause";
             this.pause.Size = new System.Drawing.Size(75, 23);
             this.pause.TabIndex = 1;
@@ -85,7 +89,7 @@
             this.decTime.TabIndex = 3;
             this.decTime.Text = "-";
             this.decTime.UseVisualStyleBackColor = true;
-            this.decTime.Click += new System.EventHandler(this.decTime_Click);
+            //this.decTime.Click += new System.EventHandler(this.decTime_Click);
             // 
             // incTime
             // 
@@ -95,20 +99,11 @@
             this.incTime.TabIndex = 4;
             this.incTime.Text = "+";
             this.incTime.UseVisualStyleBackColor = true;
-            this.incTime.Click += new System.EventHandler(this.incTime_Click);
-            // 
-            // currInterval
-            // 
-            this.currInterval.AutoSize = true;
-            this.currInterval.Location = new System.Drawing.Point(75, 0);
-            this.currInterval.Name = "currInterval";
-            this.currInterval.Size = new System.Drawing.Size(38, 13);
-            this.currInterval.TabIndex = 5;
-            this.currInterval.Text = "150ms";
+            //this.incTime.Click += new System.EventHandler(this.incTime_Click);
             // 
             // zoomIn
             // 
-            this.zoomIn.Location = new System.Drawing.Point(209, 3);
+            this.zoomIn.Location = new System.Drawing.Point(408, 3);
             this.zoomIn.Name = "zoomIn";
             this.zoomIn.Size = new System.Drawing.Size(75, 23);
             this.zoomIn.TabIndex = 6;
@@ -118,7 +113,7 @@
             // 
             // zoomOut
             // 
-            this.zoomOut.Location = new System.Drawing.Point(290, 3);
+            this.zoomOut.Location = new System.Drawing.Point(489, 3);
             this.zoomOut.Name = "zoomOut";
             this.zoomOut.Size = new System.Drawing.Size(75, 23);
             this.zoomOut.TabIndex = 7;
@@ -140,7 +135,9 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.decTime);
             this.flowLayoutPanel1.Controls.Add(this.incTime);
-            this.flowLayoutPanel1.Controls.Add(this.currInterval);
+            this.flowLayoutPanel1.Controls.Add(this.slowSpeedButton);
+            this.flowLayoutPanel1.Controls.Add(this.mediumSpeedButton);
+            this.flowLayoutPanel1.Controls.Add(this.fastSpeedButton);
             this.flowLayoutPanel1.Controls.Add(this.pause);
             this.flowLayoutPanel1.Controls.Add(this.splitter2);
             this.flowLayoutPanel1.Controls.Add(this.zoomIn);
@@ -148,6 +145,8 @@
             this.flowLayoutPanel1.Controls.Add(this.splitter1);
             this.flowLayoutPanel1.Controls.Add(this.structurePlaceFormButton);
             this.flowLayoutPanel1.Controls.Add(this.splitter3);
+            this.flowLayoutPanel1.Controls.Add(this.randomizerButton);
+            this.flowLayoutPanel1.Controls.Add(this.splitter4);
             this.flowLayoutPanel1.Controls.Add(this.clearBoard);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -157,7 +156,7 @@
             // splitter2
             // 
             this.splitter2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitter2.Location = new System.Drawing.Point(200, 3);
+            this.splitter2.Location = new System.Drawing.Point(399, 3);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(3, 23);
             this.splitter2.TabIndex = 10;
@@ -166,7 +165,7 @@
             // splitter1
             // 
             this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitter1.Location = new System.Drawing.Point(371, 3);
+            this.splitter1.Location = new System.Drawing.Point(570, 3);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 23);
             this.splitter1.TabIndex = 11;
@@ -174,7 +173,7 @@
             // 
             // structurePlaceFormButton
             // 
-            this.structurePlaceFormButton.Location = new System.Drawing.Point(380, 3);
+            this.structurePlaceFormButton.Location = new System.Drawing.Point(579, 3);
             this.structurePlaceFormButton.Name = "structurePlaceFormButton";
             this.structurePlaceFormButton.Size = new System.Drawing.Size(203, 23);
             this.structurePlaceFormButton.TabIndex = 8;
@@ -185,21 +184,70 @@
             // splitter3
             // 
             this.splitter3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitter3.Location = new System.Drawing.Point(589, 3);
+            this.splitter3.Location = new System.Drawing.Point(788, 3);
             this.splitter3.Name = "splitter3";
             this.splitter3.Size = new System.Drawing.Size(3, 23);
             this.splitter3.TabIndex = 12;
             this.splitter3.TabStop = false;
             // 
+            // randomizerButton
+            // 
+            this.randomizerButton.Location = new System.Drawing.Point(797, 3);
+            this.randomizerButton.Name = "randomizerButton";
+            this.randomizerButton.Size = new System.Drawing.Size(75, 23);
+            this.randomizerButton.TabIndex = 15;
+            this.randomizerButton.Text = "Randomizer";
+            this.randomizerButton.UseVisualStyleBackColor = true;
+            this.randomizerButton.Click += new System.EventHandler(this.randomizerButton_Click);
+            // 
+            // splitter4
+            // 
+            this.splitter4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitter4.Location = new System.Drawing.Point(878, 3);
+            this.splitter4.Name = "splitter4";
+            this.splitter4.Size = new System.Drawing.Size(3, 23);
+            this.splitter4.TabIndex = 14;
+            this.splitter4.TabStop = false;
+            // 
             // clearBoard
             // 
-            this.clearBoard.Location = new System.Drawing.Point(598, 3);
+            this.clearBoard.Location = new System.Drawing.Point(887, 3);
             this.clearBoard.Name = "clearBoard";
             this.clearBoard.Size = new System.Drawing.Size(75, 23);
             this.clearBoard.TabIndex = 13;
             this.clearBoard.Text = "Clear Board";
             this.clearBoard.UseVisualStyleBackColor = true;
             this.clearBoard.Click += new System.EventHandler(this.clearBoard_Click);
+            // 
+            // slowSpeedButton
+            // 
+            this.slowSpeedButton.Location = new System.Drawing.Point(75, 3);
+            this.slowSpeedButton.Name = "slowSpeedButton";
+            this.slowSpeedButton.Size = new System.Drawing.Size(75, 23);
+            this.slowSpeedButton.TabIndex = 16;
+            this.slowSpeedButton.Text = "Slow";
+            this.slowSpeedButton.UseVisualStyleBackColor = true;
+            this.slowSpeedButton.Click += new System.EventHandler(this.slowSpeedButton_Click);
+            // 
+            // mediumSpeedButton
+            // 
+            this.mediumSpeedButton.Location = new System.Drawing.Point(156, 3);
+            this.mediumSpeedButton.Name = "mediumSpeedButton";
+            this.mediumSpeedButton.Size = new System.Drawing.Size(75, 23);
+            this.mediumSpeedButton.TabIndex = 17;
+            this.mediumSpeedButton.Text = "Medium";
+            this.mediumSpeedButton.UseVisualStyleBackColor = true;
+            this.mediumSpeedButton.Click += new System.EventHandler(this.mediumSpeedButton_Click);
+            // 
+            // fastSpeedButton
+            // 
+            this.fastSpeedButton.Location = new System.Drawing.Point(237, 3);
+            this.fastSpeedButton.Name = "fastSpeedButton";
+            this.fastSpeedButton.Size = new System.Drawing.Size(75, 23);
+            this.fastSpeedButton.TabIndex = 18;
+            this.fastSpeedButton.Text = "Fast";
+            this.fastSpeedButton.UseVisualStyleBackColor = true;
+            this.fastSpeedButton.Click += new System.EventHandler(this.fastSpeedButton_Click);
             // 
             // gameForm
             // 
@@ -213,11 +261,10 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "gameForm";
-            this.Text = "gameForm";
+            this.Text = " ";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,7 +277,6 @@
         private System.Windows.Forms.Button pause;
         private System.Windows.Forms.Button decTime;
         private System.Windows.Forms.Button incTime;
-        private System.Windows.Forms.Label currInterval;
         private System.Windows.Forms.Button zoomIn;
         private System.Windows.Forms.Button zoomOut;
         private System.Windows.Forms.Panel panel1;
@@ -240,5 +286,10 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Splitter splitter3;
         private System.Windows.Forms.Button clearBoard;
+        private System.Windows.Forms.Splitter splitter4;
+        private System.Windows.Forms.Button randomizerButton;
+        private System.Windows.Forms.Button slowSpeedButton;
+        private System.Windows.Forms.Button mediumSpeedButton;
+        private System.Windows.Forms.Button fastSpeedButton;
     }
 }

@@ -58,7 +58,7 @@ namespace Conway
             }
         }
 
-        private void decTime_Click(object sender, EventArgs e)
+        /*private void decTime_Click(object sender, EventArgs e)
         {
             timer1.Interval += 10;
             currInterval.Text = timer1.Interval + "ms";
@@ -71,7 +71,7 @@ namespace Conway
                 timer1.Interval -= 10;
                 currInterval.Text = timer1.Interval + "ms";
             }
-        }
+        }*/
 
         private void zoomIn_Click(object sender, EventArgs e)
         {
@@ -97,6 +97,29 @@ namespace Conway
         private void clearBoard_Click(object sender, EventArgs e)
         {
             b.clearBoard();
+        }
+
+        private void randomizerButton_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            randomizer r = new randomizer();
+            r.f = this;
+            r.Show();
+        }
+
+        private void slowSpeedButton_Click(object sender, EventArgs e)
+        {
+            timer1.Interval = 500;
+        }
+
+        private void mediumSpeedButton_Click(object sender, EventArgs e)
+        {
+            timer1.Interval = 300;
+        }
+
+        private void fastSpeedButton_Click(object sender, EventArgs e)
+        {
+            timer1.Interval = 100;
         }
     }
 }

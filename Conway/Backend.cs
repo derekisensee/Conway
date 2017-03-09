@@ -10,8 +10,6 @@ namespace Conway
     {
         int[,] board;
         int generations;
-        Boolean stabilizationOccurred;
-        int[,] gliderGun;
 
         public Backend()
         {
@@ -25,12 +23,35 @@ namespace Conway
             }
 
             generations = 1;
-            stabilizationOccurred = true;
         }
 
         public Backend(int x, int y)
         {
             board = new int[x, y];
+        }
+
+        public void randomize(Double density)
+        {
+            for (int i = 0; i < board.GetLength(0); i++) // clears the board
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    board[i, j] = 0;
+                }
+            }
+
+            Random r = new Random();
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    Double prob = r.NextDouble();
+                    if (prob < density) // TODO: Fix how this is calculated
+                    {
+                        board[i, j] = 1;
+                    }
+                }
+            }
         }
 
         public void placeObject(int[,] structure, int y, int x)
@@ -117,25 +138,6 @@ namespace Conway
                         tempBoard[i, j] = 1;
                     }
                 }
-            }
-            // checks for stabilization
-            Boolean stable = true;
-            for (int i = 0; i < board.GetLength(0); i++)
-            {
-                for (int j = 0; j < board.GetLength(1); j++)
-                {
-                    if (!(board[i, j] == tempBoard[i, j]))
-                    {
-                        stable = false;
-                        stabilizationOccurred = false;
-                        break;
-                    }
-                }
-            }
-            if (stable && stabilizationOccurred)
-            {
-                //Console.WriteLine("Stabilization occured at generation: " + generations);
-                stabilizationOccurred = false; // prevents another printing of our stable-generation-number thing
             }
             board = tempBoard;
         }

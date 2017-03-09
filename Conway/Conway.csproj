@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="randomizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="randomizer.Designer.cs">
+      <DependentUpon>randomizer.cs</DependentUpon>
+    </Compile>
     <Compile Include="structurePlace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,10 +69,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gameForm.resx">
       <DependentUpon>gameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="randomizer.resx">
+      <DependentUpon>randomizer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="structurePlace.resx">
       <DependentUpon>structurePlace.cs</DependentUpon>
