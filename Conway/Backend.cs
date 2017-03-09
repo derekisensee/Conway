@@ -46,8 +46,10 @@ namespace Conway
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
                     Double prob = r.NextDouble();
-                    if (prob < density) // TODO: Fix how this is calculated
+                    Console.WriteLine("#: " + prob);
+                    if (prob <= density) // TODO: Fix how this is calculated
                     {
+                        Console.WriteLine("Boop!");
                         board[i, j] = 1;
                     }
                 }
