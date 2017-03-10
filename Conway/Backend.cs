@@ -30,7 +30,7 @@ namespace Conway
             board = new int[x, y];
         }
 
-        public void randomize(Double density)
+        public void randomize(Decimal density)
         {
             for (int i = 0; i < board.GetLength(0); i++) // clears the board
             {
@@ -39,21 +39,23 @@ namespace Conway
                     board[i, j] = 0;
                 }
             }
-
+            int totalAlive = 0;
             Random r = new Random();
             for (int i = 0; i < board.GetLength(0); i++)
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
-                    Double prob = r.NextDouble();
-                    Console.WriteLine("#: " + prob);
+                    Decimal prob = (Decimal)r.NextDouble();
+                    Console.WriteLine(prob + " : " + density);
                     if (prob <= density) // TODO: Fix how this is calculated
                     {
-                        Console.WriteLine("Boop!");
+                        Console.WriteLine("alive at " + i + ", " + j);
                         board[i, j] = 1;
+                        totalAlive++;
                     }
                 }
             }
+            Console.WriteLine("Total alive: " + totalAlive);
         }
 
         public void placeObject(int[,] structure, int y, int x)

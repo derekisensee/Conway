@@ -42,7 +42,7 @@ namespace Conway
 
         private void structurePlace_FormClosing(object sender, FormClosingEventArgs e)
         {
-            f.timer1.Start();
+            f.stepTimer.Start();
         }
 
         private void placeButton_Click(object sender, EventArgs e)

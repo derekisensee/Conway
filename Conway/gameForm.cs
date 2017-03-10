@@ -50,12 +50,12 @@ namespace Conway
         {
             if (paused)
             {
-                timer1.Start();
+                stepTimer.Start();
                 paused = false;
             }
             else
             {
-                timer1.Stop();
+                stepTimer.Stop();
                 paused = true;
             }
         }
@@ -75,7 +75,7 @@ namespace Conway
 
         private void structurePlaceFormButton_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
+            stepTimer.Stop();
             structurePlace sP = new structurePlace();
             sP.f = this; // gives structurePlace access to the 'b' backend
             sP.Show();
@@ -88,7 +88,7 @@ namespace Conway
 
         private void randomizerButton_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
+            stepTimer.Stop();
             randomizer r = new randomizer();
             r.f = this;
             r.Show();
@@ -96,22 +96,22 @@ namespace Conway
 
         private void slowSpeedButton_Click(object sender, EventArgs e)
         {
-            timer1.Interval = 500;
+            stepTimer.Interval = 500;
         }
 
         private void mediumSpeedButton_Click(object sender, EventArgs e)
         {
-            timer1.Interval = 300;
+            stepTimer.Interval = 300;
         }
 
         private void fastSpeedButton_Click(object sender, EventArgs e)
         {
-            timer1.Interval = 100;
+            stepTimer.Interval = 100;
         }
 
         private void fastestSpeedButton_Click(object sender, EventArgs e)
         {
-            timer1.Interval = 1;
+            stepTimer.Interval = 1;
         }
     }
 }

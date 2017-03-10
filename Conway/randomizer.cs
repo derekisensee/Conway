@@ -20,13 +20,13 @@ namespace Conway
 
         private void randomize_Click(object sender, EventArgs e)
         {
-            f.b.randomize((Double)randomDensity.Value);
+            f.b.randomize(randomDensity.Value);
             Close();
         }
 
         private void randomizer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            f.timer1.Start();
+            f.stepTimer.Start();
         }
     }
 }
