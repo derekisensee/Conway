@@ -26,6 +26,7 @@ namespace Conway
         {
             b.updateBoard();
             int[,] board = b.getBoard();
+            int aliveCells = 0;
             String boardString = "";
 
             for (int i = 0; i < board.GetLength(0); i++)
@@ -36,6 +37,7 @@ namespace Conway
                         boardString += ". ";
                     else
                     {
+                        aliveCells++;
                         boardString += "+";
                     }
                 }
@@ -57,21 +59,6 @@ namespace Conway
                 paused = true;
             }
         }
-
-        /*private void decTime_Click(object sender, EventArgs e)
-        {
-            timer1.Interval += 10;
-            currInterval.Text = timer1.Interval + "ms";
-        }
-
-        private void incTime_Click(object sender, EventArgs e)
-        {
-            if (!(timer1.Interval == 10))
-            {
-                timer1.Interval -= 10;
-                currInterval.Text = timer1.Interval + "ms";
-            }
-        }*/
 
         private void zoomIn_Click(object sender, EventArgs e)
         {
@@ -120,6 +107,11 @@ namespace Conway
         private void fastSpeedButton_Click(object sender, EventArgs e)
         {
             timer1.Interval = 100;
+        }
+
+        private void fastestSpeedButton_Click(object sender, EventArgs e)
+        {
+            timer1.Interval = 1;
         }
     }
 }

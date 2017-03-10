@@ -33,12 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pause = new System.Windows.Forms.Button();
-            this.decTime = new System.Windows.Forms.Button();
-            this.incTime = new System.Windows.Forms.Button();
             this.zoomIn = new System.Windows.Forms.Button();
             this.zoomOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.slowSpeedButton = new System.Windows.Forms.Button();
+            this.mediumSpeedButton = new System.Windows.Forms.Button();
+            this.fastSpeedButton = new System.Windows.Forms.Button();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.structurePlaceFormButton = new System.Windows.Forms.Button();
@@ -46,11 +47,11 @@
             this.randomizerButton = new System.Windows.Forms.Button();
             this.splitter4 = new System.Windows.Forms.Splitter();
             this.clearBoard = new System.Windows.Forms.Button();
-            this.slowSpeedButton = new System.Windows.Forms.Button();
-            this.mediumSpeedButton = new System.Windows.Forms.Button();
-            this.fastSpeedButton = new System.Windows.Forms.Button();
+            this.fastestSpeedButton = new System.Windows.Forms.Button();
+            this.ManipulationHolder = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.ManipulationHolder.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -61,9 +62,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(6, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 9);
+            this.label1.Size = new System.Drawing.Size(805, 9);
             this.label1.TabIndex = 0;
-            this.label1.Text = ":-)";
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // timer1
             // 
@@ -73,7 +74,7 @@
             // 
             // pause
             // 
-            this.pause.Location = new System.Drawing.Point(318, 3);
+            this.pause.Location = new System.Drawing.Point(84, 32);
             this.pause.Name = "pause";
             this.pause.Size = new System.Drawing.Size(75, 23);
             this.pause.TabIndex = 1;
@@ -81,29 +82,9 @@
             this.pause.UseVisualStyleBackColor = true;
             this.pause.Click += new System.EventHandler(this.pause_Click);
             // 
-            // decTime
-            // 
-            this.decTime.Location = new System.Drawing.Point(3, 3);
-            this.decTime.Name = "decTime";
-            this.decTime.Size = new System.Drawing.Size(30, 23);
-            this.decTime.TabIndex = 3;
-            this.decTime.Text = "-";
-            this.decTime.UseVisualStyleBackColor = true;
-            //this.decTime.Click += new System.EventHandler(this.decTime_Click);
-            // 
-            // incTime
-            // 
-            this.incTime.Location = new System.Drawing.Point(39, 3);
-            this.incTime.Name = "incTime";
-            this.incTime.Size = new System.Drawing.Size(30, 23);
-            this.incTime.TabIndex = 4;
-            this.incTime.Text = "+";
-            this.incTime.UseVisualStyleBackColor = true;
-            //this.incTime.Click += new System.EventHandler(this.incTime_Click);
-            // 
             // zoomIn
             // 
-            this.zoomIn.Location = new System.Drawing.Point(408, 3);
+            this.zoomIn.Location = new System.Drawing.Point(174, 32);
             this.zoomIn.Name = "zoomIn";
             this.zoomIn.Size = new System.Drawing.Size(75, 23);
             this.zoomIn.TabIndex = 6;
@@ -113,7 +94,7 @@
             // 
             // zoomOut
             // 
-            this.zoomOut.Location = new System.Drawing.Point(489, 3);
+            this.zoomOut.Location = new System.Drawing.Point(3, 61);
             this.zoomOut.Name = "zoomOut";
             this.zoomOut.Size = new System.Drawing.Size(75, 23);
             this.zoomOut.TabIndex = 7;
@@ -126,37 +107,65 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 48);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1174, 495);
+            this.panel1.Size = new System.Drawing.Size(914, 495);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.decTime);
-            this.flowLayoutPanel1.Controls.Add(this.incTime);
             this.flowLayoutPanel1.Controls.Add(this.slowSpeedButton);
             this.flowLayoutPanel1.Controls.Add(this.mediumSpeedButton);
             this.flowLayoutPanel1.Controls.Add(this.fastSpeedButton);
+            this.flowLayoutPanel1.Controls.Add(this.fastestSpeedButton);
             this.flowLayoutPanel1.Controls.Add(this.pause);
             this.flowLayoutPanel1.Controls.Add(this.splitter2);
             this.flowLayoutPanel1.Controls.Add(this.zoomIn);
             this.flowLayoutPanel1.Controls.Add(this.zoomOut);
             this.flowLayoutPanel1.Controls.Add(this.splitter1);
-            this.flowLayoutPanel1.Controls.Add(this.structurePlaceFormButton);
             this.flowLayoutPanel1.Controls.Add(this.splitter3);
             this.flowLayoutPanel1.Controls.Add(this.randomizerButton);
             this.flowLayoutPanel1.Controls.Add(this.splitter4);
             this.flowLayoutPanel1.Controls.Add(this.clearBoard);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(932, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1174, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 159);
             this.flowLayoutPanel1.TabIndex = 8;
+            // 
+            // slowSpeedButton
+            // 
+            this.slowSpeedButton.Location = new System.Drawing.Point(3, 3);
+            this.slowSpeedButton.Name = "slowSpeedButton";
+            this.slowSpeedButton.Size = new System.Drawing.Size(75, 23);
+            this.slowSpeedButton.TabIndex = 16;
+            this.slowSpeedButton.Text = "Slow";
+            this.slowSpeedButton.UseVisualStyleBackColor = true;
+            this.slowSpeedButton.Click += new System.EventHandler(this.slowSpeedButton_Click);
+            // 
+            // mediumSpeedButton
+            // 
+            this.mediumSpeedButton.Location = new System.Drawing.Point(84, 3);
+            this.mediumSpeedButton.Name = "mediumSpeedButton";
+            this.mediumSpeedButton.Size = new System.Drawing.Size(75, 23);
+            this.mediumSpeedButton.TabIndex = 17;
+            this.mediumSpeedButton.Text = "Medium";
+            this.mediumSpeedButton.UseVisualStyleBackColor = true;
+            this.mediumSpeedButton.Click += new System.EventHandler(this.mediumSpeedButton_Click);
+            // 
+            // fastSpeedButton
+            // 
+            this.fastSpeedButton.Location = new System.Drawing.Point(165, 3);
+            this.fastSpeedButton.Name = "fastSpeedButton";
+            this.fastSpeedButton.Size = new System.Drawing.Size(75, 23);
+            this.fastSpeedButton.TabIndex = 18;
+            this.fastSpeedButton.Text = "Fast";
+            this.fastSpeedButton.UseVisualStyleBackColor = true;
+            this.fastSpeedButton.Click += new System.EventHandler(this.fastSpeedButton_Click);
             // 
             // splitter2
             // 
             this.splitter2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitter2.Location = new System.Drawing.Point(399, 3);
+            this.splitter2.Location = new System.Drawing.Point(165, 32);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(3, 23);
             this.splitter2.TabIndex = 10;
@@ -165,7 +174,7 @@
             // splitter1
             // 
             this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitter1.Location = new System.Drawing.Point(570, 3);
+            this.splitter1.Location = new System.Drawing.Point(84, 61);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 23);
             this.splitter1.TabIndex = 11;
@@ -173,7 +182,7 @@
             // 
             // structurePlaceFormButton
             // 
-            this.structurePlaceFormButton.Location = new System.Drawing.Point(579, 3);
+            this.structurePlaceFormButton.Location = new System.Drawing.Point(6, 19);
             this.structurePlaceFormButton.Name = "structurePlaceFormButton";
             this.structurePlaceFormButton.Size = new System.Drawing.Size(203, 23);
             this.structurePlaceFormButton.TabIndex = 8;
@@ -184,7 +193,7 @@
             // splitter3
             // 
             this.splitter3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitter3.Location = new System.Drawing.Point(788, 3);
+            this.splitter3.Location = new System.Drawing.Point(93, 61);
             this.splitter3.Name = "splitter3";
             this.splitter3.Size = new System.Drawing.Size(3, 23);
             this.splitter3.TabIndex = 12;
@@ -192,7 +201,7 @@
             // 
             // randomizerButton
             // 
-            this.randomizerButton.Location = new System.Drawing.Point(797, 3);
+            this.randomizerButton.Location = new System.Drawing.Point(102, 61);
             this.randomizerButton.Name = "randomizerButton";
             this.randomizerButton.Size = new System.Drawing.Size(75, 23);
             this.randomizerButton.TabIndex = 15;
@@ -203,7 +212,7 @@
             // splitter4
             // 
             this.splitter4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitter4.Location = new System.Drawing.Point(878, 3);
+            this.splitter4.Location = new System.Drawing.Point(183, 61);
             this.splitter4.Name = "splitter4";
             this.splitter4.Size = new System.Drawing.Size(3, 23);
             this.splitter4.TabIndex = 14;
@@ -211,7 +220,7 @@
             // 
             // clearBoard
             // 
-            this.clearBoard.Location = new System.Drawing.Point(887, 3);
+            this.clearBoard.Location = new System.Drawing.Point(3, 90);
             this.clearBoard.Name = "clearBoard";
             this.clearBoard.Size = new System.Drawing.Size(75, 23);
             this.clearBoard.TabIndex = 13;
@@ -219,35 +228,25 @@
             this.clearBoard.UseVisualStyleBackColor = true;
             this.clearBoard.Click += new System.EventHandler(this.clearBoard_Click);
             // 
-            // slowSpeedButton
+            // fastestSpeedButton
             // 
-            this.slowSpeedButton.Location = new System.Drawing.Point(75, 3);
-            this.slowSpeedButton.Name = "slowSpeedButton";
-            this.slowSpeedButton.Size = new System.Drawing.Size(75, 23);
-            this.slowSpeedButton.TabIndex = 16;
-            this.slowSpeedButton.Text = "Slow";
-            this.slowSpeedButton.UseVisualStyleBackColor = true;
-            this.slowSpeedButton.Click += new System.EventHandler(this.slowSpeedButton_Click);
+            this.fastestSpeedButton.Location = new System.Drawing.Point(3, 32);
+            this.fastestSpeedButton.Name = "fastestSpeedButton";
+            this.fastestSpeedButton.Size = new System.Drawing.Size(75, 23);
+            this.fastestSpeedButton.TabIndex = 19;
+            this.fastestSpeedButton.Text = "Fastest";
+            this.fastestSpeedButton.UseVisualStyleBackColor = true;
+            this.fastestSpeedButton.Click += new System.EventHandler(this.fastestSpeedButton_Click);
             // 
-            // mediumSpeedButton
+            // ManipulationHolder
             // 
-            this.mediumSpeedButton.Location = new System.Drawing.Point(156, 3);
-            this.mediumSpeedButton.Name = "mediumSpeedButton";
-            this.mediumSpeedButton.Size = new System.Drawing.Size(75, 23);
-            this.mediumSpeedButton.TabIndex = 17;
-            this.mediumSpeedButton.Text = "Medium";
-            this.mediumSpeedButton.UseVisualStyleBackColor = true;
-            this.mediumSpeedButton.Click += new System.EventHandler(this.mediumSpeedButton_Click);
-            // 
-            // fastSpeedButton
-            // 
-            this.fastSpeedButton.Location = new System.Drawing.Point(237, 3);
-            this.fastSpeedButton.Name = "fastSpeedButton";
-            this.fastSpeedButton.Size = new System.Drawing.Size(75, 23);
-            this.fastSpeedButton.TabIndex = 18;
-            this.fastSpeedButton.Text = "Fast";
-            this.fastSpeedButton.UseVisualStyleBackColor = true;
-            this.fastSpeedButton.Click += new System.EventHandler(this.fastSpeedButton_Click);
+            this.ManipulationHolder.Controls.Add(this.structurePlaceFormButton);
+            this.ManipulationHolder.Location = new System.Drawing.Point(932, 177);
+            this.ManipulationHolder.Name = "ManipulationHolder";
+            this.ManipulationHolder.Size = new System.Drawing.Size(248, 150);
+            this.ManipulationHolder.TabIndex = 9;
+            this.ManipulationHolder.TabStop = false;
+            this.ManipulationHolder.Text = "Manipulation Controls";
             // 
             // gameForm
             // 
@@ -257,6 +256,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1198, 555);
+            this.Controls.Add(this.ManipulationHolder);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -265,6 +265,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.ManipulationHolder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,8 +276,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button pause;
-        private System.Windows.Forms.Button decTime;
-        private System.Windows.Forms.Button incTime;
         private System.Windows.Forms.Button zoomIn;
         private System.Windows.Forms.Button zoomOut;
         private System.Windows.Forms.Panel panel1;
@@ -291,5 +290,7 @@
         private System.Windows.Forms.Button slowSpeedButton;
         private System.Windows.Forms.Button mediumSpeedButton;
         private System.Windows.Forms.Button fastSpeedButton;
+        private System.Windows.Forms.Button fastestSpeedButton;
+        private System.Windows.Forms.GroupBox ManipulationHolder;
     }
 }
