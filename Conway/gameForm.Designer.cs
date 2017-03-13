@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
             this.label1 = new System.Windows.Forms.Label();
             this.stepTimer = new System.Windows.Forms.Timer(this.components);
-            this.pause = new System.Windows.Forms.Button();
+            this.Pause = new System.Windows.Forms.Button();
             this.zoomIn = new System.Windows.Forms.Button();
             this.zoomOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,10 +46,11 @@
             this.ManipulationHolder = new System.Windows.Forms.GroupBox();
             this.timeControlsHolder = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.generationsLable = new System.Windows.Forms.Label();
-            this.aliveLabel = new System.Windows.Forms.Label();
-            this.generationsCount = new System.Windows.Forms.Label();
             this.aliveCount = new System.Windows.Forms.Label();
+            this.generationsCount = new System.Windows.Forms.Label();
+            this.aliveLabel = new System.Windows.Forms.Label();
+            this.generationsLable = new System.Windows.Forms.Label();
+            this.HistoryButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.ManipulationHolder.SuspendLayout();
             this.timeControlsHolder.SuspendLayout();
@@ -74,15 +75,15 @@
             this.stepTimer.Interval = 150;
             this.stepTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pause
+            // Pause
             // 
-            this.pause.Location = new System.Drawing.Point(6, 80);
-            this.pause.Name = "pause";
-            this.pause.Size = new System.Drawing.Size(242, 23);
-            this.pause.TabIndex = 1;
-            this.pause.Text = "Pause/Start";
-            this.pause.UseVisualStyleBackColor = true;
-            this.pause.Click += new System.EventHandler(this.pause_Click);
+            this.Pause.Location = new System.Drawing.Point(6, 48);
+            this.Pause.Name = "Pause";
+            this.Pause.Size = new System.Drawing.Size(242, 23);
+            this.Pause.TabIndex = 1;
+            this.Pause.Text = "Pause/Start";
+            this.Pause.UseVisualStyleBackColor = true;
+            this.Pause.Click += new System.EventHandler(this.pause_Click);
             // 
             // zoomIn
             // 
@@ -118,7 +119,7 @@
             // 
             this.slowSpeedButton.Location = new System.Drawing.Point(6, 19);
             this.slowSpeedButton.Name = "slowSpeedButton";
-            this.slowSpeedButton.Size = new System.Drawing.Size(50, 23);
+            this.slowSpeedButton.Size = new System.Drawing.Size(46, 23);
             this.slowSpeedButton.TabIndex = 16;
             this.slowSpeedButton.Text = "Slow";
             this.slowSpeedButton.UseVisualStyleBackColor = true;
@@ -126,9 +127,9 @@
             // 
             // mediumSpeedButton
             // 
-            this.mediumSpeedButton.Location = new System.Drawing.Point(62, 19);
+            this.mediumSpeedButton.Location = new System.Drawing.Point(58, 19);
             this.mediumSpeedButton.Name = "mediumSpeedButton";
-            this.mediumSpeedButton.Size = new System.Drawing.Size(55, 23);
+            this.mediumSpeedButton.Size = new System.Drawing.Size(59, 23);
             this.mediumSpeedButton.TabIndex = 17;
             this.mediumSpeedButton.Text = "Medium";
             this.mediumSpeedButton.UseVisualStyleBackColor = true;
@@ -138,7 +139,7 @@
             // 
             this.fastSpeedButton.Location = new System.Drawing.Point(123, 19);
             this.fastSpeedButton.Name = "fastSpeedButton";
-            this.fastSpeedButton.Size = new System.Drawing.Size(53, 23);
+            this.fastSpeedButton.Size = new System.Drawing.Size(54, 23);
             this.fastSpeedButton.TabIndex = 18;
             this.fastSpeedButton.Text = "Fast";
             this.fastSpeedButton.UseVisualStyleBackColor = true;
@@ -146,9 +147,9 @@
             // 
             // fastestSpeedButton
             // 
-            this.fastestSpeedButton.Location = new System.Drawing.Point(182, 19);
+            this.fastestSpeedButton.Location = new System.Drawing.Point(183, 19);
             this.fastestSpeedButton.Name = "fastestSpeedButton";
-            this.fastestSpeedButton.Size = new System.Drawing.Size(55, 23);
+            this.fastestSpeedButton.Size = new System.Drawing.Size(65, 23);
             this.fastestSpeedButton.TabIndex = 19;
             this.fastestSpeedButton.Text = "Fastest";
             this.fastestSpeedButton.UseVisualStyleBackColor = true;
@@ -200,7 +201,8 @@
             // 
             // timeControlsHolder
             // 
-            this.timeControlsHolder.Controls.Add(this.pause);
+            this.timeControlsHolder.Controls.Add(this.HistoryButton);
+            this.timeControlsHolder.Controls.Add(this.Pause);
             this.timeControlsHolder.Controls.Add(this.fastestSpeedButton);
             this.timeControlsHolder.Controls.Add(this.fastSpeedButton);
             this.timeControlsHolder.Controls.Add(this.mediumSpeedButton);
@@ -218,21 +220,30 @@
             this.groupBox1.Controls.Add(this.generationsCount);
             this.groupBox1.Controls.Add(this.aliveLabel);
             this.groupBox1.Controls.Add(this.generationsLable);
-            this.groupBox1.Location = new System.Drawing.Point(18, 455);
+            this.groupBox1.Location = new System.Drawing.Point(12, 284);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(248, 88);
+            this.groupBox1.Size = new System.Drawing.Size(254, 88);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Numbers!";
             // 
-            // generationsLable
+            // aliveCount
             // 
-            this.generationsLable.AutoSize = true;
-            this.generationsLable.Location = new System.Drawing.Point(15, 16);
-            this.generationsLable.Name = "generationsLable";
-            this.generationsLable.Size = new System.Drawing.Size(67, 13);
-            this.generationsLable.TabIndex = 0;
-            this.generationsLable.Text = "Generations:";
+            this.aliveCount.AutoSize = true;
+            this.aliveCount.Location = new System.Drawing.Point(88, 38);
+            this.aliveCount.Name = "aliveCount";
+            this.aliveCount.Size = new System.Drawing.Size(13, 13);
+            this.aliveCount.TabIndex = 3;
+            this.aliveCount.Text = "0";
+            // 
+            // generationsCount
+            // 
+            this.generationsCount.AutoSize = true;
+            this.generationsCount.Location = new System.Drawing.Point(88, 16);
+            this.generationsCount.Name = "generationsCount";
+            this.generationsCount.Size = new System.Drawing.Size(13, 13);
+            this.generationsCount.TabIndex = 2;
+            this.generationsCount.Text = "0";
             // 
             // aliveLabel
             // 
@@ -243,23 +254,24 @@
             this.aliveLabel.TabIndex = 1;
             this.aliveLabel.Text = "Alive Cells:";
             // 
-            // generationsCount
+            // generationsLable
             // 
-            this.generationsCount.AutoSize = true;
-            this.generationsCount.Location = new System.Drawing.Point(88, 16);
-            this.generationsCount.Name = "generationsCount";
-            this.generationsCount.Size = new System.Drawing.Size(35, 13);
-            this.generationsCount.TabIndex = 2;
-            this.generationsCount.Text = "label2";
+            this.generationsLable.AutoSize = true;
+            this.generationsLable.Location = new System.Drawing.Point(15, 16);
+            this.generationsLable.Name = "generationsLable";
+            this.generationsLable.Size = new System.Drawing.Size(67, 13);
+            this.generationsLable.TabIndex = 0;
+            this.generationsLable.Text = "Generations:";
             // 
-            // aliveCount
+            // HistoryButton
             // 
-            this.aliveCount.AutoSize = true;
-            this.aliveCount.Location = new System.Drawing.Point(88, 38);
-            this.aliveCount.Name = "aliveCount";
-            this.aliveCount.Size = new System.Drawing.Size(35, 13);
-            this.aliveCount.TabIndex = 3;
-            this.aliveCount.Text = "label3";
+            this.HistoryButton.Location = new System.Drawing.Point(7, 78);
+            this.HistoryButton.Name = "HistoryButton";
+            this.HistoryButton.Size = new System.Drawing.Size(241, 23);
+            this.HistoryButton.TabIndex = 20;
+            this.HistoryButton.Text = "History";
+            this.HistoryButton.UseVisualStyleBackColor = true;
+            this.HistoryButton.Click += new System.EventHandler(this.HistoryButton_Click);
             // 
             // gameForm
             // 
@@ -291,7 +303,7 @@
 
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Timer stepTimer;
-        private System.Windows.Forms.Button pause;
+        private System.Windows.Forms.Button Pause;
         private System.Windows.Forms.Button zoomIn;
         private System.Windows.Forms.Button zoomOut;
         private System.Windows.Forms.Panel panel1;
@@ -309,5 +321,6 @@
         private System.Windows.Forms.Label generationsLable;
         private System.Windows.Forms.Label aliveCount;
         private System.Windows.Forms.Label generationsCount;
+        private System.Windows.Forms.Button HistoryButton;
     }
 }

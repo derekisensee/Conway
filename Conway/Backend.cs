@@ -1,18 +1,23 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Conway
 {
     public class Backend
     {
         int[,] board;
-        int generations;
+        ArrayList boardHistory;
+        List<int> generationHistory;
+        List<int> aliveHistory;
+        public int currentGeneration;
 
         public Backend()
         {
+            boardHistory = new ArrayList();
+            generationHistory = new List<int>();
+            aliveHistory = new List<int>();
+
             board = new int[70, 200];
             for (int i = 0; i < board.GetLength(0); i++)
             {
@@ -22,7 +27,7 @@ namespace Conway
                 }
             }
 
-            generations = 1;
+            currentGeneration = 1;
         }
 
         public Backend(int x, int y)
@@ -73,12 +78,27 @@ namespace Conway
             }
         }
 
-        public int[,] getBoard()
+        public int[,] GetBoard()
         {
             return board;
         }
 
-        public void clearBoard()
+        public ArrayList GetHistory()
+        {
+            return boardHistory;
+        }
+
+        public List<int> GetGenerationHistory()
+        {
+            return generationHistory;
+        }
+
+        public List<int> GetAliveHistory()
+        {
+            return aliveHistory;
+        }
+
+        public void ClearBoard()
         {
             board = new int[70, 200];
             for (int i = 0; i < board.GetLength(0); i++)
@@ -88,9 +108,10 @@ namespace Conway
                     board[i, j] = 0;
                 }
             }
+            currentGeneration = 0;
         }
 
-        public void printBoard(Object source, System.Timers.ElapsedEventArgs e)
+        public void PrintBoard(Object source, System.Timers.ElapsedEventArgs e) // i'll keep this around for some sort of console-application option. currently unused as of 3/12/2017, at 10:48 PM.
         {
             for (int i = 0; i < board.GetLength(0); i++)
             {
@@ -104,12 +125,11 @@ namespace Conway
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("Generations: " + generations + "\nPress Enter to exit");
-            updateBoard();
-            generations++;
+            Console.WriteLine("Generations: " + currentGeneration + "\nPress Enter to exit");
+            UpdateBoard();
         }
 
-        public void updateBoard()
+        public void UpdateBoard()
         {
             #region tempBoard definition
             int[,] tempBoard = new int[70, 200];
@@ -121,16 +141,20 @@ namespace Conway
                 }
             }
             #endregion
+
+            int aliveCells = 0;
+
             for (int i = 0; i < board.GetLength(0); i++) // y axis
             {
                 for (int j = 0; j < board.GetLength(1); j++) // x axis
                 {
-                    int neighbors = checkLive(i, j);
-                    if (board[i, j] == 1) // removing this check produces odd behavior...
+                    int neighbors = CheckLive(i, j);
+                    if (board[i, j] == 1) // removing this check produces odd behavior...or does it?
                     {
                         if (neighbors == 2 || neighbors == 3)
                         {
                             tempBoard[i, j] = 1;
+                            aliveCells++;
                         }
                         else
                         {
@@ -140,13 +164,18 @@ namespace Conway
                     if (board[i, j] == 0 && neighbors == 3) // come to life!
                     {
                         tempBoard[i, j] = 1;
+                        aliveCells++;
                     }
                 }
             }
+            boardHistory.Add(board);
+            generationHistory.Add(currentGeneration);
+            aliveHistory.Add(aliveCells);
+            currentGeneration++;
             board = tempBoard;
         }
 
-        int checkLive(int y, int x) // returns number of neighbors. TODO: This is in need of major clean up, these statements can more than likely be condensed a line or 100.
+        int CheckLive(int y, int x) // returns number of neighbors. TODO: This is in need of major clean up, these statements can more than likely be condensed a line or 100.
         {
             System.Collections.ArrayList spotChecked = new System.Collections.ArrayList();
             int count = 0;
@@ -372,7 +401,7 @@ namespace Conway
             return count;
         }
 
-        // boards
+        // boards. TODO: move to structurePlace.cs
         #region empty board
         /*
         board = new int[20, 20]

@@ -24,8 +24,8 @@ namespace Conway
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            b.updateBoard();
-            int[,] board = b.getBoard();
+            b.UpdateBoard();
+            int[,] board = b.GetBoard();
             int aliveCells = 0;
             String boardString = "";
 
@@ -44,6 +44,9 @@ namespace Conway
                 boardString += "\n";
             }
             label1.Text = boardString;
+
+            aliveCount.Text = aliveCells.ToString();
+            generationsCount.Text = b.currentGeneration.ToString();
         }
 
         private void pause_Click(object sender, EventArgs e)
@@ -83,7 +86,7 @@ namespace Conway
 
         private void clearBoard_Click(object sender, EventArgs e)
         {
-            b.clearBoard();
+            b.ClearBoard();
         }
 
         private void randomizerButton_Click(object sender, EventArgs e)
@@ -112,6 +115,16 @@ namespace Conway
         private void fastestSpeedButton_Click(object sender, EventArgs e)
         {
             stepTimer.Interval = 1;
+        }
+
+        private void HistoryButton_Click(object sender, EventArgs e)
+        {
+            stepTimer.Stop();
+            History h = new History()
+            {
+                f = this
+            };
+            h.Show();
         }
     }
 }
