@@ -1,8 +1,0 @@
-version: '2.1'
-
-services:
-  conway:
-    image: conway
-    build:
-      context: .\Conway
-      dockerfile: Dockerfile

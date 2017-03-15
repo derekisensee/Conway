@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Conway
 {
@@ -33,8 +34,14 @@ namespace Conway
             boardHistory = f.b.GetHistory();
             generationHistory = f.b.GetGenerationHistory();
             aliveHistory = f.b.GetAliveHistory();
+
+            //historyChart.ChartAreas[0].AxisY.Maximum = 10;
+
+            historyChart.Series["AlivePerGeneration"].Sort(PointSortOrder.Ascending, "X");
+
             for (int i = 0; i < generationHistory.Count; i++) {
-                historyChart.Series["Series1"].Points.Add(generationHistory[i], aliveHistory[i]);
+                historyChart.Series["AlivePerGeneration"].Points.Add(aliveHistory[i]); // having weird issues with Y-axis not displaying correct numbers...
+                Console.WriteLine(generationHistory[i] + " : " + aliveHistory[i]);
             }
         }
     }
