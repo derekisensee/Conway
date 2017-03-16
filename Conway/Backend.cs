@@ -98,7 +98,7 @@ namespace Conway
             return aliveHistory;
         }
 
-        public void ClearBoard()
+        public void ClearBoard() // clears board and resets list histories
         {
             board = new int[70, 200];
             for (int i = 0; i < board.GetLength(0); i++)
@@ -109,6 +109,9 @@ namespace Conway
                 }
             }
             currentGeneration = 0;
+            boardHistory = new ArrayList();
+            generationHistory = new List<int>();
+            aliveHistory = new List<int>();
         }
 
         public void PrintBoard(Object source, System.Timers.ElapsedEventArgs e) // i'll keep this around for some sort of console-application option. currently unused as of 3/12/2017, at 10:48 PM.

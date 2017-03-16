@@ -20,6 +20,7 @@ namespace Conway
             InitializeComponent();
             b = new Backend();
             paused = false;
+            //stepTimer.Stop(); // TODO: Delibate if we want this or not.
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -84,7 +85,7 @@ namespace Conway
             sP.Show();
         }
 
-        private void clearBoard_Click(object sender, EventArgs e)
+        private void ClearBoard_Click(object sender, EventArgs e)
         {
             b.ClearBoard();
         }

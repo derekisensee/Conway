@@ -45,12 +45,12 @@
             this.structurePlaceFormButton = new System.Windows.Forms.Button();
             this.ManipulationHolder = new System.Windows.Forms.GroupBox();
             this.timeControlsHolder = new System.Windows.Forms.GroupBox();
+            this.HistoryButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.aliveCount = new System.Windows.Forms.Label();
             this.generationsCount = new System.Windows.Forms.Label();
             this.aliveLabel = new System.Windows.Forms.Label();
             this.generationsLable = new System.Windows.Forms.Label();
-            this.HistoryButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.ManipulationHolder.SuspendLayout();
             this.timeControlsHolder.SuspendLayout();
@@ -173,7 +173,7 @@
             this.clearBoard.TabIndex = 13;
             this.clearBoard.Text = "Clear Board";
             this.clearBoard.UseVisualStyleBackColor = true;
-            this.clearBoard.Click += new System.EventHandler(this.clearBoard_Click);
+            this.clearBoard.Click += new System.EventHandler(this.ClearBoard_Click);
             // 
             // structurePlaceFormButton
             // 
@@ -213,6 +213,16 @@
             this.timeControlsHolder.TabIndex = 10;
             this.timeControlsHolder.TabStop = false;
             this.timeControlsHolder.Text = "Time Controls";
+            // 
+            // HistoryButton
+            // 
+            this.HistoryButton.Location = new System.Drawing.Point(7, 78);
+            this.HistoryButton.Name = "HistoryButton";
+            this.HistoryButton.Size = new System.Drawing.Size(241, 23);
+            this.HistoryButton.TabIndex = 20;
+            this.HistoryButton.Text = "History";
+            this.HistoryButton.UseVisualStyleBackColor = true;
+            this.HistoryButton.Click += new System.EventHandler(this.HistoryButton_Click);
             // 
             // groupBox1
             // 
@@ -263,16 +273,6 @@
             this.generationsLable.TabIndex = 0;
             this.generationsLable.Text = "Generations:";
             // 
-            // HistoryButton
-            // 
-            this.HistoryButton.Location = new System.Drawing.Point(7, 78);
-            this.HistoryButton.Name = "HistoryButton";
-            this.HistoryButton.Size = new System.Drawing.Size(241, 23);
-            this.HistoryButton.TabIndex = 20;
-            this.HistoryButton.Text = "History";
-            this.HistoryButton.UseVisualStyleBackColor = true;
-            this.HistoryButton.Click += new System.EventHandler(this.HistoryButton_Click);
-            // 
             // gameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +288,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "gameForm";
             this.Text = " ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ManipulationHolder.ResumeLayout(false);

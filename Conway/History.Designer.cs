@@ -41,14 +41,14 @@
             this.historyChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.historyChart.Legends.Add(legend1);
-            this.historyChart.Location = new System.Drawing.Point(12, 12);
+            this.historyChart.Location = new System.Drawing.Point(171, 12);
             this.historyChart.Name = "historyChart";
             series1.ChartArea = "ChartArea1";
-            series1.IsValueShownAsLabel = true;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "AlivePerGeneration";
             this.historyChart.Series.Add(series1);
-            this.historyChart.Size = new System.Drawing.Size(1168, 497);
+            this.historyChart.Size = new System.Drawing.Size(1009, 497);
             this.historyChart.TabIndex = 0;
             this.historyChart.Text = "chart1";
             // 
